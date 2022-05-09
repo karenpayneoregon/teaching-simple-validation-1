@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace AnnotationValidationLibrary.Models
@@ -8,6 +9,7 @@ namespace AnnotationValidationLibrary.Models
         private string _countryName;
         private int _countryIdentifier;
 
+        [Key]
         public int CountryIdentifier
         {
             get => _countryIdentifier;
@@ -17,7 +19,8 @@ namespace AnnotationValidationLibrary.Models
                 OnPropertyChanged();
             }
         }
-
+        [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
+        [Display(Prompt = "Country name")]
         public string CountryName
         {
             get => _countryName;

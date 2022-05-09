@@ -13,31 +13,44 @@ namespace AnnotationValidationLibrary.Models
         private Country _country;
         private DateTime _birthDate;
 
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
         [MaxLength(12, ErrorMessage = "The {0} can not have more than {1} characters")]
+        [Display(Prompt = "First name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
         [MaxLength(12, ErrorMessage = "The {0} can not have more than {1} characters")]
+        [Display(Prompt = "Last name")]
         public string LastName { get; set; }
 
         [EmailAddress]
+        [Display(Prompt = "Personal email address")]
         public string Email { get; set; }
 
+        [Display(Prompt = "Credit limt")]
         public decimal CreditLimit { get; set; }
 
         [CreditCard]
+        [Display(Prompt = "Credit card number")]
         public string CreditCardNumber { get; set; }
+
+        [Display(Prompt = "Current discount")]
         public int Discount { get; set; }
+
         public bool HasDiscount { get; set; }
+
+        [Display(Prompt = "Street")]
         public string Address { get; set; }
 
         [ValidPostalCode]
+        [Display(Prompt = "Zip code")]
         public string PostalCode { get; set; }
 
         [WeekendDateNotPermitted]
+        [Display(Prompt = "Next appointment date")]
         public DateTime AppointmentDate { get; set; }
 
         [Required]
@@ -52,12 +65,15 @@ namespace AnnotationValidationLibrary.Models
         }
 
         [ValidPin]
+        [Display(Prompt = "Security pin")]
         public string Pin { get; set; }
 
         [SocialSecurity]
+        [Display(Prompt = "SSN")]
         public string SocialSecurity { get; set; }
 
         [YearRange(maximumYear: 2022, MinimumYear = 1931, ErrorMessage = "Valid years are between {0} and {1}")]
+        [Display(Prompt = "Birth date")]
         public DateTime BirthDate
         {
             get => _birthDate;
