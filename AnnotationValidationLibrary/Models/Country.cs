@@ -20,7 +20,7 @@ namespace AnnotationValidationLibrary.Models
             }
         }
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
-        [Display(Prompt = "Country name")]
+        [Display(Name = "Country name")]
         public string CountryName
         {
             get => _countryName;

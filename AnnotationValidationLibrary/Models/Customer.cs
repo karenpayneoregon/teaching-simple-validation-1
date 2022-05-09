@@ -18,35 +18,35 @@ namespace AnnotationValidationLibrary.Models
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
         [MaxLength(12, ErrorMessage = "The {0} can not have more than {1} characters")]
-        [Display(Prompt = "First name")]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
         [MaxLength(12, ErrorMessage = "The {0} can not have more than {1} characters")]
-        [Display(Prompt = "Last name")]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
 
         [EmailAddress]
-        [Display(Prompt = "Personal email address")]
+        [Display(Name = "Personal email address")]
         public string Email { get; set; }
 
-        [Display(Prompt = "Credit limt")]
+        [Display(Name = "Credit limit")]
         public decimal CreditLimit { get; set; }
 
         [CreditCard]
-        [Display(Prompt = "Credit card number")]
+        [Display(Name = "Credit card number")]
         public string CreditCardNumber { get; set; }
 
-        [Display(Prompt = "Current discount")]
+        [Display(Name = "Current discount")]
         public int Discount { get; set; }
 
         public bool HasDiscount { get; set; }
 
-        [Display(Prompt = "Street")]
+        [Display(Name = "Street")]
         public string Address { get; set; }
 
         [ValidPostalCode]
-        [Display(Prompt = "Zip code")]
+        [Display(Name = "Zip code")]
         public string PostalCode { get; set; }
 
         [WeekendDateNotPermitted]
