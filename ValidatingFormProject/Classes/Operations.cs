@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using AnnotationValidationLibrary.Models;
+using Bogus;
 
 namespace ValidatingFormProject.Classes
 {
@@ -78,6 +80,23 @@ namespace ValidatingFormProject.Classes
         public static void UpdateCustomer(Customer customer)
         {
             // TODO - update to a file or database or send to a service and post
+        }
+
+        public static List<string> CreateNotes(int count = 3)
+        {
+            List<string> list = new ();
+            if (count == 0)
+            {
+                return list;
+            }
+            else
+            {
+                Enumerable.Range(1, count).ToList().ForEach(x => list.Add(new Faker().Lorem.Sentences(1)));
+                return list;
+
+            }
+
+            
         }
     }
 }

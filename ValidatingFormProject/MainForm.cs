@@ -22,11 +22,55 @@ namespace ValidatingFormProject
         public MainForm()
         {
             InitializeComponent();
-            Debug.WriteLine(BuildInfo.BuildDateText);
-            Debug.WriteLine(BuildInfo.VersionText);
-
+            
             Shown += MainForm_Shown;
+            Move += OnMove;
         }
+
+        private void OnMove(object sender, EventArgs e)
+        {
+            MoveChildForm();
+        }
+
+        private void MoveChildForm()
+        {
+            var childForms = Application.OpenForms.Cast<Form>()
+                .Where(form => form.Name == nameof(SideForm));
+
+            if (childForms.Any())
+            {
+                foreach (var currentChildForm in childForms)
+                {
+                    currentChildForm.Top = Top;
+                    currentChildForm.Left = 
+                        currentChildForm.Tag.ToString() == "Left" ? (Left - Width) + 120 : (Left + Width) ;
+                }
+            }
+        }
+
+        private void SetResultTextInChildWindow(string text = "")
+        {
+            var childForms = Application.OpenForms.Cast<Form>()
+                .Where(form => form.Name == nameof(SideForm));
+
+            if (childForms.Any())
+            {
+                var list = childForms.Select(x => (SideForm)x).ToList();
+                foreach (var sideForm in list)
+                {
+                    sideForm.ErrorsTextBox.Text = text;
+                }
+            }
+            else
+            {
+                var childForm1 = new SideForm() { Top = Top, Left = (Left + Width), Tag = "Right" };
+                childForm1.Show();
+                MoveChildForm();
+                childForm1.ErrorsTextBox.Text = text;
+            }
+        }
+
+
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
@@ -51,6 +95,12 @@ namespace ValidatingFormProject
             CreditCardTextBox.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.CreditCardNumber));
             AppointmentDateTimePicker1.DataBindings.Add("Text", _customerBindingSource, nameof(Customer.AppointmentDate));
 
+            NotesComboBox.SelectedIndex = 3;
+            _customerBindingSource.Customer().NotesList = Operations.CreateNotes();
+
+            var childForm1 = new SideForm() { Top = Top, Left = (Left + Width), Tag = "Right" };
+            childForm1.Show();
+            MoveChildForm();
 
         }
 
@@ -67,11 +117,25 @@ namespace ValidatingFormProject
             }
             else
             {
-                var customer = (Customer)_customerBindingSource.Current;
+                var customer = _customerBindingSource.Customer();
+
+                customer.NotesList = Operations.CreateNotes(Convert.ToInt32(NotesComboBox.Text));
                 var (success, errorMessages) = ValidationOperations.IsValidCustomer(customer);
-                Dialogs.Information(this, success ? "Valid" : $"Not valid\n{errorMessages}");
+
+                if (!success)
+                {
+                    FunStuff.Shake(this);
+                    SetResultTextInChildWindow(errorMessages);
+                }
+                else
+                {
+                    SetResultTextInChildWindow();
+                    Dialogs.Information(this, "Valid");
+                }
             }
 
         }
+
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using AnnotationValidationLibrary.Models;
+using Newtonsoft.Json;
 
 namespace ValidatingFormProject.Extensions
 {
@@ -14,7 +16,19 @@ namespace ValidatingFormProject.Extensions
         public static Country Country(this ComboBox sender)
             => (Country)sender.SelectedItem;
 
-
+        /// <summary>
+        /// Present fake data to Visual Studio's output window
+        /// </summary>
+        /// <param name="sender"></param>
+        public static void DumpJson(this object sender)
+        {
+            Debug.WriteLine(sender.DumpString());
+        }
+        public static string DumpString(this object sender)
+            => JsonConvert.SerializeObject(sender, Formatting.Indented, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
         public static void ToggleShow(this TextBox sender, bool show = true)
         {
             sender.PasswordChar = show ?
@@ -42,5 +56,6 @@ namespace ValidatingFormProject.Extensions
         /// <returns>True if not null, false if null</returns>
         public static bool IsNotNull<T>(this T senderInstance) where T : new() => !senderInstance.IsNull();
 
+        public static Customer Customer(this BindingSource bindingSource) => (Customer)bindingSource.Current;
     }
 }

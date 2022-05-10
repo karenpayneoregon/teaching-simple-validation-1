@@ -50,7 +50,10 @@ namespace ValidatingFormProject
             this.label1 = new System.Windows.Forms.Label();
             this.AppointmentDateTimePicker1 = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.BirthDatePicker = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
+            this.NotesComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // CountryComboBox
@@ -245,11 +248,40 @@ namespace ValidatingFormProject
             this.BirthDatePicker.TabIndex = 23;
             this.BirthDatePicker.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
             // 
+            // NotesComboBox
+            // 
+            this.NotesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NotesComboBox.FormattingEnabled = true;
+            this.NotesComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.NotesComboBox.Location = new System.Drawing.Point(8, 22);
+            this.NotesComboBox.Name = "NotesComboBox";
+            this.NotesComboBox.Size = new System.Drawing.Size(121, 23);
+            this.NotesComboBox.TabIndex = 24;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.NotesComboBox);
+            this.groupBox2.Location = new System.Drawing.Point(272, 162);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(223, 62);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Notes count";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 392);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BirthDatePicker);
             this.Controls.Add(this.AppointmentDateTimePicker1);
             this.Controls.Add(this.label1);
@@ -276,6 +308,7 @@ namespace ValidatingFormProject
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Validation code sample";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +336,8 @@ namespace ValidatingFormProject
         private System.Windows.Forms.Label label1;
         private WindowsFormsLibrary.Controls.NullableDateTimePicker AppointmentDateTimePicker1;
         private WindowsFormsLibrary.Controls.NullableDateTimePicker BirthDatePicker;
+        private System.Windows.Forms.ComboBox NotesComboBox;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
