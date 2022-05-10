@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using AnnotationValidationLibrary.Rules;
 
 namespace AnnotationValidationLibrary.Models
 {
@@ -21,6 +22,7 @@ namespace AnnotationValidationLibrary.Models
         }
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
         [Display(Name = "Country name")]
+        
         public string CountryName
         {
             get => _countryName;

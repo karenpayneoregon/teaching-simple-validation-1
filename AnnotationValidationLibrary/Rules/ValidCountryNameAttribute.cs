@@ -7,11 +7,15 @@ namespace AnnotationValidationLibrary.Rules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class ValidCountryNameAttribute : ValidationAttribute
     {
-        public override bool IsValid(object value) => value switch
+        public override bool IsValid(object value)
+        {
+            if (value is null)
             {
-                null => false,
-                Country country => country.CountryName != "Select",
-                              _ => throw new ArgumentException($"Must be a {nameof(Country)}")
-            };
+                return false;
+            }
+
+            return value.ToString() != "Select";
+
+        }
     }
 }

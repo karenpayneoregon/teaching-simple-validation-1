@@ -6,7 +6,6 @@ namespace BaseDataValidatorLibrary.CommonRules
 {
     /// <summary>
     /// Basic SSN validation, see also
-    /// FluentValidationUnitTests.LanguageExtensions.IsSSNValid extension for more validation
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class SocialSecurityAttribute : ValidationAttribute
@@ -14,21 +13,30 @@ namespace BaseDataValidatorLibrary.CommonRules
         /// <summary>
         ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
         /// </summary>
-        public override bool IsValid(object sender)
+        public override bool IsValid(object ssn)
         {
-            if (sender is null)
+            if (ssn is null)
             {
                 return false;
             }
 
-            if (sender.ToString().Length == 9 && Regex.IsMatch(sender.ToString()!, @"^\d{9}$"))
+            string value = ssn.ToString();
+            if (value.Length == 9)
             {
-                return true;
+                value = value.Insert(5, "-").Insert(3, "-");
             }
-            else
-            {
-                return false;
-            }
+
+            return !string.IsNullOrWhiteSpace(value) && new Regex(
+                    @"^(?!\b(\d)\1+-(\d)\1+-(\d)\1+\b)(?!123-45-6789|219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$")
+                .IsMatch(value);
+            //if (ssn.ToString().Length == 9 && Regex.IsMatch(ssn.ToString()!, @"^\d{9}$"))
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
     }
 }

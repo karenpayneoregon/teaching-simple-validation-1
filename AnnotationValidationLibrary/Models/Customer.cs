@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.ComponentModel.DataAnnotations;
+using AnnotationValidationLibrary.Rules;
 using BaseDataValidatorLibrary.CommonRules;
 
 
@@ -64,6 +65,8 @@ namespace AnnotationValidationLibrary.Models
                 OnPropertyChanged();
             }
         }
+        [ValidCountryName(ErrorMessage = "Country name is required")]
+        public string CountryName => Country.CountryName;
 
         [ValidPin]
         [Display(Prompt = "Security pin")]
@@ -73,7 +76,7 @@ namespace AnnotationValidationLibrary.Models
         [Display(Prompt = "SSN")]
         public string SocialSecurity { get; set; }
 
-        [YearRange(maximumYear: 2022, MinimumYear = 1931, ErrorMessage = "Valid years are between {0} and {1}")]
+        [YearRange(maximumYear: 2022, MinimumYear = 1932)]
         [Display(Prompt = "Birth date")]
         public DateTime BirthDate
         {

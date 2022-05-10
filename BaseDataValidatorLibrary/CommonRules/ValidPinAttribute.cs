@@ -28,6 +28,11 @@ namespace BaseDataValidatorLibrary.CommonRules
                 return false;
             }
 
+            if (value.Length < 4)
+            {
+                return false;
+            }
+
             List<string> list = new() { "1111", "1234", "5555" };
             var result = list.FirstOrDefault(item => item == value);
 

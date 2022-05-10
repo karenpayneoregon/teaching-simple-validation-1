@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{ED9AA996-E50F-435B-88A3-7D589BFE8E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnotationValidationLibrary", "AnnotationValidationLibrary\AnnotationValidationLibrary.csproj", "{4099AD0D-D5D8-40AA-8788-DAC29D712222}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnotationValidationLibrary", "AnnotationValidationLibrary\AnnotationValidationLibrary.csproj", "{4099AD0D-D5D8-40AA-8788-DAC29D712222}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDataValidatorLibrary", "BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj", "{88FA6678-1551-417C-A70B-C1A5D53CA925}"
 EndProject
@@ -13,6 +13,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows Forms projects", "Windows Forms projects", "{19A819B3-1675-4609-B8A5-3B31880CFFE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatingFormProject", "ValidatingFormProject\ValidatingFormProject.csproj", "{6EFE9DB9-42E8-4F8F-8221-B66F10276409}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsFormsLibrary", "WindowsFormsLibrary\WindowsFormsLibrary.csproj", "{DFEBB3D6-766B-4D4B-B51D-38204DC1576E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +34,14 @@ Global
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EFE9DB9-42E8-4F8F-8221-B66F10276409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EFE9DB9-42E8-4F8F-8221-B66F10276409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EFE9DB9-42E8-4F8F-8221-B66F10276409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EFE9DB9-42E8-4F8F-8221-B66F10276409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +49,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4099AD0D-D5D8-40AA-8788-DAC29D712222} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
 		{88FA6678-1551-417C-A70B-C1A5D53CA925} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
+		{6EFE9DB9-42E8-4F8F-8221-B66F10276409} = {19A819B3-1675-4609-B8A5-3B31880CFFE9}
+		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13547EFA-0764-479E-8539-678419E9D4D1}
