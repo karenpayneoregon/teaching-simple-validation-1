@@ -33,7 +33,6 @@ namespace ValidatingFormProject
             this.CountryComboBox = new System.Windows.Forms.ComboBox();
             this.ValidateButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.MakeCountryNullCheckBox = new System.Windows.Forms.CheckBox();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
@@ -45,7 +44,6 @@ namespace ValidatingFormProject
             this.ShowHidePasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
-            this.ValidNoteCountCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CreditCardTextBox = new System.Windows.Forms.TextBox();
@@ -83,7 +81,6 @@ namespace ValidatingFormProject
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.MakeCountryNullCheckBox);
             this.groupBox1.Controls.Add(this.CountryComboBox);
             this.groupBox1.Location = new System.Drawing.Point(269, 81);
             this.groupBox1.Name = "groupBox1";
@@ -91,16 +88,6 @@ namespace ValidatingFormProject
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "C&ountry";
-            // 
-            // MakeCountryNullCheckBox
-            // 
-            this.MakeCountryNullCheckBox.AutoSize = true;
-            this.MakeCountryNullCheckBox.Location = new System.Drawing.Point(20, 51);
-            this.MakeCountryNullCheckBox.Name = "MakeCountryNullCheckBox";
-            this.MakeCountryNullCheckBox.Size = new System.Drawing.Size(122, 19);
-            this.MakeCountryNullCheckBox.TabIndex = 1;
-            this.MakeCountryNullCheckBox.Text = "Make country null";
-            this.MakeCountryNullCheckBox.UseVisualStyleBackColor = true;
             // 
             // FirstNameLabel
             // 
@@ -202,18 +189,6 @@ namespace ValidatingFormProject
             this.PostalCodeTextBox.TabIndex = 13;
             this.PostalCodeTextBox.Text = "97209";
             // 
-            // ValidNoteCountCheckBox
-            // 
-            this.ValidNoteCountCheckBox.AutoSize = true;
-            this.ValidNoteCountCheckBox.Checked = true;
-            this.ValidNoteCountCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ValidNoteCountCheckBox.Location = new System.Drawing.Point(289, 170);
-            this.ValidNoteCountCheckBox.Name = "ValidNoteCountCheckBox";
-            this.ValidNoteCountCheckBox.Size = new System.Drawing.Size(112, 19);
-            this.ValidNoteCountCheckBox.TabIndex = 15;
-            this.ValidNoteCountCheckBox.Text = "Valid note count";
-            this.ValidNoteCountCheckBox.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -281,7 +256,6 @@ namespace ValidatingFormProject
             this.Controls.Add(this.CreditCardTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.ValidNoteCountCheckBox);
             this.Controls.Add(this.PostalCodeTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ShowHidePasswordCheckBox);
@@ -302,7 +276,6 @@ namespace ValidatingFormProject
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Validation code sample";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,8 +297,6 @@ namespace ValidatingFormProject
         private System.Windows.Forms.CheckBox ShowHidePasswordCheckBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PostalCodeTextBox;
-        private System.Windows.Forms.CheckBox MakeCountryNullCheckBox;
-        private System.Windows.Forms.CheckBox ValidNoteCountCheckBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox CreditCardTextBox;

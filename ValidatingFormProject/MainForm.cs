@@ -61,16 +61,17 @@ namespace ValidatingFormProject
 
         private void ValidateButton_Click(object sender, EventArgs e)
         {
-            try
+            if (_customerBindingSource.Current is null)
+            {
+                Dialogs.Information(this, "Customer is in an invalid state");
+            }
+            else
             {
                 var customer = (Customer)_customerBindingSource.Current;
                 var (success, errorMessages) = ValidationOperations.IsValidCustomer(customer);
                 Dialogs.Information(this, success ? "Valid" : $"Not valid\n{errorMessages}");
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
+
         }
     }
 }

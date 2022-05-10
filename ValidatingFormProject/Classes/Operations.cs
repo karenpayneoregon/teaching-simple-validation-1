@@ -34,10 +34,10 @@ namespace ValidatingFormProject.Classes
                 PostalCode = "97223",
                 Email = "someEmail@comcast.net",
                 SocialSecurity = "205-16-7777",
-                BirthDate = new DateTime(1931, 1, 1),
+                BirthDate = new DateTime(1945, 1, 1),
                 Pin = "2222",
                 CreditCardNumber = "5503022366657760",
-                NotesList = new List<string>() {"",""},
+                NotesList = new List<string>() {"","", "", ""},
                 Country = new Country()
                 {
                     CountryIdentifier = 9,

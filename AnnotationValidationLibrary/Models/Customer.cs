@@ -88,7 +88,7 @@ namespace AnnotationValidationLibrary.Models
             }
         }
 
-        [ListMustContainFewerThan]
+        [ListMustContainFewerThan(5)]
         public List<string> NotesList { get; set; }
 
         public override string ToString() => $"{FirstName} {LastName}";
