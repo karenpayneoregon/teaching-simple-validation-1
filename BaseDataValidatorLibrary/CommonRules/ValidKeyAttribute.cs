@@ -9,6 +9,9 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class ValidKeyAttribute : ValidationAttribute
     {
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
             string value = Convert.ToString(sender);

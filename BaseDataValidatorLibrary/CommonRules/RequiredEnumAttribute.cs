@@ -11,6 +11,9 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class RequiredEnumAttribute : RequiredAttribute
     {
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
             if (sender == null)

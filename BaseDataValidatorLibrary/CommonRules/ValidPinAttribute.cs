@@ -11,6 +11,9 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class ValidPinAttribute : ValidationAttribute
     {
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object pin)
         {
             if (pin is null)

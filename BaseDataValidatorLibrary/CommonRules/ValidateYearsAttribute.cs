@@ -18,6 +18,9 @@ namespace BaseDataValidatorLibrary.CommonRules
         public readonly DateTime _minValue = DateTime.UtcNow.AddYears(-90);
         public readonly DateTime _maxValue = DateTime.UtcNow;
 
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
             var value = (DateTime)sender;

@@ -7,6 +7,9 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class PasswordCheck : ValidationAttribute
     {
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object value)
         {
             var validPassword = false;

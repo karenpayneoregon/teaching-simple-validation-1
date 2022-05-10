@@ -10,8 +10,12 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class CheckPhoneValidationAttribute : ValidationAttribute 
     {
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
+            // local function
             static bool IsDigitsOnly(string value)
             {
                 return value.All(character => character is >= '0' and <= '9');

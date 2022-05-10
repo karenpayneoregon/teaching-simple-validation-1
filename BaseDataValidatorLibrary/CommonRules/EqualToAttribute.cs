@@ -39,6 +39,9 @@ namespace BaseDataValidatorLibrary.CommonRules
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, otherPropertyDisplayName);
         }
 
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var memberNames = new[] { validationContext.MemberName };

@@ -26,7 +26,8 @@ namespace AnnotationValidationLibrary.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
-        [EmailAddress]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [Display(Name = "Personal email address")]
         public string Email { get; set; }
 

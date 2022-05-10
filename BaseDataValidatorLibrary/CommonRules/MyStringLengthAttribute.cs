@@ -14,6 +14,9 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
         }
 
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object value)
         {
             string val = Convert.ToString(value);

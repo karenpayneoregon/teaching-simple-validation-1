@@ -20,6 +20,9 @@ namespace BaseDataValidatorLibrary.CommonRules
         public override string FormatErrorMessage(string name) 
             => string.Format(ErrorMessageString, name, OtherProperty);
 
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         protected override ValidationResult IsValid(object firstValue, ValidationContext validationContext)
         {
             var firstComparable = firstValue as IComparable;

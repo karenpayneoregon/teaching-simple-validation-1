@@ -11,8 +11,9 @@ namespace BaseDataValidatorLibrary.CommonRules
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class SocialSecurityAttribute : ValidationAttribute
     {
-        public string SocialValue { get; set; }
-
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
             if (sender is null)

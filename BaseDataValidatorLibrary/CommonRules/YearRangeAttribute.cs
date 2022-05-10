@@ -24,6 +24,9 @@ namespace BaseDataValidatorLibrary.CommonRules
         /// </summary>
         public int MinimumYear { get; set; }
 
+        /// <summary>
+        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+        /// </summary>
         public override bool IsValid(object sender)
         {
             var value = (DateTime)sender;
