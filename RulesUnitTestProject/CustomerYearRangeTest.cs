@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using BaseDataValidatorLibrary.CommonRules;
 using RulesUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
@@ -43,7 +44,7 @@ namespace RulesUnitTestProject
             // arrange
             var customer = Customer;
 
-            customer.BirthDate = new DateTime(1930, 1, 1);
+            customer.BirthDate = new DateTime(2023, 1, 1);
 
             // act
             var (success, _) = ValidationOperations.IsValidEntity(customer);
@@ -52,6 +53,35 @@ namespace RulesUnitTestProject
 
             Check.That(success).IsFalse();
         }
+
+        /// <summary>
+        /// Shows how to perform IsValid on <see cref="YearRangeAttribute"/> without an entire
+        /// instance of a model.
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.CustomAnnotationAttribute)]
+        public void RawYearRangeTest()
+        {
+            var customer = Customer;
+
+            var yearRangeTest = new YearRangeAttribute(2022)
+            {
+                MinimumYear = 1932
+            };
+
+            // BirthDate is in proper range
+            Check.That(yearRangeTest.IsValid(customer.BirthDate)).IsTrue();
+
+            // BirthDate year is out of max range
+            customer.BirthDate = new DateTime(2023, 1, 1);
+            Check.That(yearRangeTest.IsValid(customer.BirthDate)).IsFalse();
+
+            // BirthDate year is out of min range
+            customer.BirthDate = new DateTime(1931, 1, 1);
+            Check.That(yearRangeTest.IsValid(customer.BirthDate)).IsFalse();
+
+        }
+
 
         [TestMethod]
         [TestTraits(Trait.CustomAnnotationAttribute)]

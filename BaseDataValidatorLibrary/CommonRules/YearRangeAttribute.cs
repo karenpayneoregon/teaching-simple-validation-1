@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
@@ -37,10 +38,13 @@ namespace BaseDataValidatorLibrary.CommonRules
         /// <summary>
         ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
         /// </summary>
+        /// <remarks>
+        /// We could combine value with the return, that makes debugging impossible.
+        /// </remarks>
         public override bool IsValid(object sender)
         {
             var value = (DateTime)sender;
-            return value.Year >= MinimumYear && value.Year <= MaximumYear;
+            return value.Year.Between(MinimumYear, MaximumYear);
         }
     }
 }
