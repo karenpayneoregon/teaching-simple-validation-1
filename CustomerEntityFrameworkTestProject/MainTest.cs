@@ -38,6 +38,7 @@ namespace CustomerEntityFrameworkTestProject
         {
             Console.WriteLine(CustomerValid.GetNameForProperty(customer => customer.FirstName));
             
+            // without an instance
             //Console.WriteLine(CustomerValid.GetNameForProperty(customer => customer.BirthDate));
             //PropertyInfo result = typeof(Customer).GetProperty(nameof(Customer.BirthDate));
             //Console.WriteLine(ExtractDisplayHelpers.TryGetDisplayPrompt(result));
