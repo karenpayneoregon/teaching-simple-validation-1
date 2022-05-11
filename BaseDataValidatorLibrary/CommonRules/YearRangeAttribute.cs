@@ -5,9 +5,7 @@ using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
-    /// <summary>
-    /// Custom attribute for year range, could also use <see cref="RangeAttribute"/>
-    /// </summary>
+
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class YearRangeAttribute : ValidationAttribute
     {
@@ -15,36 +13,27 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             MaximumYear = maximumYear;
         }
-
         /// <summary>
-        /// Maximum acceptable year
+        /// Maximum permitted year
         /// </summary>
         public int MaximumYear { get; }
-
         /// <summary>
-        /// Minimum acceptable year
+        /// Minimum permitted year
         /// </summary>
         public int MinimumYear { get; set; }
         public override string FormatErrorMessage(string name)
         {
-            if (ErrorMessage == null && ErrorMessageResourceName == null)
+            if (ErrorMessage is null && ErrorMessageResourceName is null)
             {
-                ErrorMessage = "'{0}' and '{1}' do not match.";
+                ErrorMessage = "'Year {0}' and year '{1}' are invalid";
             }
 
             return $"{name} year must be between {MinimumYear} and {MaximumYear}";
 
         }
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        /// <remarks>
-        /// We could combine value with the return, that makes debugging impossible.
-        /// </remarks>
-        public override bool IsValid(object sender)
-        {
-            var value = (DateTime)sender;
-            return value.Year.Between(MinimumYear, MaximumYear);
-        }
+
+        public override bool IsValid(object sender) 
+            => ((DateTime)sender).Year.Between(MinimumYear, MaximumYear);
     }
 }
+

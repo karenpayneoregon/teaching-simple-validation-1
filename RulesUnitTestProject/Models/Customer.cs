@@ -24,7 +24,7 @@ namespace RulesUnitTestProject.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
-
+        [Required]
         [YearRange(maximumYear: 2022, MinimumYear = 1932)]
         [Display(Prompt = "Birth date")]
         public DateTime BirthDate
