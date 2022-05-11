@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Classes;
+using BaseDataValidatorLibrary.CommonRules;
 using CustomerEntityFrameworkTestProject.Base;
 using CustomerEntityFrameworkTestProject.Classes;
 using EntityFrameworkCoreLibrary.Classes;
@@ -47,6 +48,11 @@ namespace CustomerEntityFrameworkTestProject
             Console.WriteLine(prompt);
             var name = CustomerValid.GetAttributeFrom<DisplayAttribute>(nameof(CustomerValid.BirthDate)).Name;
             Console.WriteLine(name);
+
+            var minimumYear = CustomerValid.GetAttributeFrom<YearRangeAttribute>(nameof(CustomerValid.BirthDate)).MinimumYear;
+            Console.WriteLine(minimumYear);
+            var maximumYear = CustomerValid.GetAttributeFrom<YearRangeAttribute>(nameof(CustomerValid.BirthDate)).MaximumYear;
+            Console.WriteLine(maximumYear);
         }
 
         /// <summary>
