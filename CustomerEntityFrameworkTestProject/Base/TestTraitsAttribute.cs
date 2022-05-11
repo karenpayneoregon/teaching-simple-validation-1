@@ -11,7 +11,8 @@ namespace CustomerEntityFrameworkTestProject.Base
         /// Place holder 
         /// </summary>
         PlaceHolder,
-        EntityFrameworkValidationAnnotations
+        EntityFrameworkValidationAnnotations,
+        Tinkering
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

@@ -25,7 +25,7 @@ namespace EntityFrameworkCoreLibrary.Models
 
         [Required]
         [YearRange(maximumYear: 2022, MinimumYear = 1932)]
-        [Display(Prompt = "Birth date")]
+        [Display(Name = "Date of birth", Prompt = "Enter your birth date")]
         public DateTime BirthDate
         {
             get => _birthDate;

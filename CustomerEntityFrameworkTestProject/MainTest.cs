@@ -1,6 +1,10 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using BaseDataValidatorLibrary.Classes;
 using CustomerEntityFrameworkTestProject.Base;
 using CustomerEntityFrameworkTestProject.Classes;
 using EntityFrameworkCoreLibrary.Classes;
@@ -26,6 +30,22 @@ namespace CustomerEntityFrameworkTestProject
             // arrange
             var (success, exception) = await CreateOperations.NewExampleDatabase();
             Check.That(success).IsTrue();
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Tinkering)]
+        public void GetDisplayName()
+        {
+            Console.WriteLine(CustomerValid.GetNameForProperty(customer => customer.FirstName));
+            
+            //Console.WriteLine(CustomerValid.GetNameForProperty(customer => customer.BirthDate));
+            //PropertyInfo result = typeof(Customer).GetProperty(nameof(Customer.BirthDate));
+            //Console.WriteLine(ExtractDisplayHelpers.TryGetDisplayPrompt(result));
+
+            var prompt = CustomerValid.GetAttributeFrom<DisplayAttribute>(nameof(CustomerValid.BirthDate)).Prompt;
+            Console.WriteLine(prompt);
+            var name = CustomerValid.GetAttributeFrom<DisplayAttribute>(nameof(CustomerValid.BirthDate)).Name;
+            Console.WriteLine(name);
         }
 
         /// <summary>
@@ -84,11 +104,12 @@ namespace CustomerEntityFrameworkTestProject
             var (success, messages) = ValidationOperations.IsValidEntity(CustomerInvalid);
             if (success)
             {
-                // If model valid we add the a new record but it is not valid
+                // If model valid we add the a new record
             }
             else
             {
                 // assert
+                // can not add record, validation failed
                 Check.That(messages).ContainsExactly(builder.ToString());
             }
 
