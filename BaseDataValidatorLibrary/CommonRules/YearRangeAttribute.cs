@@ -25,7 +25,7 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             if (ErrorMessage is null && ErrorMessageResourceName is null)
             {
-                ErrorMessage = "'Year {0}' and year '{1}' are invalid";
+                ErrorMessage = "'Year {0}' and/or year '{1}' are invalid";
             }
 
             return $"{name} year must be between {MinimumYear} and {MaximumYear}";

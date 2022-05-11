@@ -2,7 +2,7 @@
 using System.Text;
 using BaseDataValidatorLibrary.Helpers;
 
-namespace RulesUnitTestProject.Classes
+namespace CustomerEntityFrameworkTestProject.Classes
 {
     public class ValidationOperations
     {
