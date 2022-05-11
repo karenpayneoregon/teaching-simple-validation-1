@@ -52,6 +52,7 @@ namespace ValidatingFormProject
             this.BirthDatePicker = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.NotesComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SolutionNameLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -276,11 +277,21 @@ namespace ValidatingFormProject
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Notes count";
             // 
+            // SolutionNameLabel
+            // 
+            this.SolutionNameLabel.AutoSize = true;
+            this.SolutionNameLabel.Location = new System.Drawing.Point(16, 368);
+            this.SolutionNameLabel.Name = "SolutionNameLabel";
+            this.SolutionNameLabel.Size = new System.Drawing.Size(84, 15);
+            this.SolutionNameLabel.TabIndex = 26;
+            this.SolutionNameLabel.Text = "Solution name";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 392);
+            this.Controls.Add(this.SolutionNameLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BirthDatePicker);
             this.Controls.Add(this.AppointmentDateTimePicker1);
@@ -338,6 +349,7 @@ namespace ValidatingFormProject
         private WindowsFormsLibrary.Controls.NullableDateTimePicker BirthDatePicker;
         private System.Windows.Forms.ComboBox NotesComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label SolutionNameLabel;
     }
 }
 

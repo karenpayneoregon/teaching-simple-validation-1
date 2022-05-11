@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnnotationValidationLibrary.Models;
+using DirectoryHelpersLibrary.Classes;
 using ValidatingFormProject.Classes;
 using ValidatingFormProject.Extensions;
 using WindowsFormsLibrary.Classes;
@@ -24,10 +25,13 @@ namespace ValidatingFormProject
             InitializeComponent();
             
             Shown += MainForm_Shown;
-            Move += OnMove;
+
+            SolutionNameLabel.Text = Folders.CurrentSolutionName();
+
+            Move += OnTheMove;
         }
 
-        private void OnMove(object sender, EventArgs e)
+        private void OnTheMove(object sender, EventArgs e)
         {
             MoveChildForm();
         }

@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AnnotationValidationLibrary\AnnotationValidationLibrary.csproj" />
     <ProjectReference Include="..\BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj" />
+    <ProjectReference Include="..\DirectoryHelpersLibrary\DirectoryHelpersLibrary.csproj" />
     <ProjectReference Include="..\WindowsFormsLibrary\WindowsFormsLibrary.csproj" />
   </ItemGroup>
 
