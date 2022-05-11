@@ -4,6 +4,14 @@
 		<LangVersion>9.0</LangVersion>
 		<TargetFramework>net5.0</TargetFramework>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Scripts.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Scripts.sql" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
 	</ItemGroup>

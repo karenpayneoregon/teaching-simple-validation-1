@@ -17,9 +17,17 @@ namespace RulesUnitTestProject.Classes
 
             if (result.IsNotValid)
             {
-                StringBuilder builder = new ();
-                result.Errors.ToList().ForEach(x => builder.AppendLine(x.ErrorMessage));
-                return (false, builder.ToString());
+                StringBuilder builder = new();
+                if (result.Errors.Count == 1)
+                {
+                    return (false, result.Errors.FirstOrDefault().ErrorMessage);
+                }
+                else
+                {
+                    result.Errors.ToList().ForEach(x => builder.AppendLine(x.ErrorMessage));
+                    return (false, builder.ToString());
+                }
+
             }
             else
             {

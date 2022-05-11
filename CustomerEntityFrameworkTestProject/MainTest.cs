@@ -93,5 +93,22 @@ namespace CustomerEntityFrameworkTestProject
             }
 
         }
+        [TestMethod]
+        [TestTraits(Trait.EntityFrameworkValidationAnnotations)]
+        public void InvalidCustomerMinBirthDateYearValidationTest()
+        {
+
+            // arrange
+
+            Customer customer = CustomerValid;
+            customer.BirthDate = new DateTime(1930, 1, 1);
+
+            // act
+            var ( _ , messages) = ValidationOperations.IsValidEntity(customer);
+
+            // assert
+            Check.That(messages).Equals("BirthDate year must be between 1932 and 2022");
+
+        }
     }
 }
