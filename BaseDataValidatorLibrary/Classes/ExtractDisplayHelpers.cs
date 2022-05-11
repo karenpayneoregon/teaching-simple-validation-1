@@ -11,14 +11,21 @@ namespace BaseDataValidatorLibrary.Classes
     public static class ExtractDisplayHelpers
     {
 
+        /// <summary>
+        /// Generic method to get a value for a property by attribute
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         public static T GetAttributeFrom<T>(this object instance, string propertyName) where T : Attribute
         {
             var attrType = typeof(T);
             var property = instance.GetType().GetProperty(propertyName);
-            return (T)property.GetCustomAttributes(attrType, false).First();
+            return (T)property?.GetCustomAttributes(attrType, false).First();
         }
         /// <summary>
-        /// Returns the DisplayAttribute of a PropertyInfo (field), if it fails returns null
+        /// Return Display name if any
         /// </summary>
         /// <param name="propertyInfo"></param>
         /// <returns></returns>
@@ -39,6 +46,12 @@ namespace BaseDataValidatorLibrary.Classes
             }
             return result;
         }
+
+        /// <summary>
+        /// Return Display prompt if any
+        /// </summary>
+        /// <param name="propertyInfo"></param>
+        /// <returns></returns>
         public static string TryGetDisplayPrompt(PropertyInfo propertyInfo)
         {
             string result = null;
@@ -56,6 +69,15 @@ namespace BaseDataValidatorLibrary.Classes
             }
             return result;
         }
+
+        /// <summary>
+        /// PascalCase property name
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TV"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public static string GetNameForProperty<T, TV>(this T source, Expression<Func<T, TV>> model) where T : class
         {
             Tuple<PropertyInfo, DisplayAttribute> propAndAttr = GetPropAndAttr(model);
