@@ -25,7 +25,7 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
         }
 
         /// <summary>
-        /// Displays any error messages using Console.WriteLine
+        /// Displays any error messages using Console.WriteLine for unit test
         /// </summary>
         /// <param name="sender"></param>
         public static void ShowErrorMessages(this EntityValidationResult sender)
@@ -37,9 +37,18 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
 
         public static string ErrorText(this EntityValidationResult sender)
         {
-            StringBuilder builder = new();
-            sender.ErrorMessagesList().ForEach(x => builder.AppendLine(x));
-            return builder.ToString();
+
+            if (sender.ErrorMessagesList().Count == 1)
+            {
+                return sender.ErrorMessagesList().FirstOrDefault();
+            }
+            else
+            {
+                StringBuilder builder = new();
+                sender.ErrorMessagesList().ForEach(x => builder.AppendLine(x));
+                return builder.ToString();
+            }
+
         }
 
     }

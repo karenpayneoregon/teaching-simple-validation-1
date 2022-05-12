@@ -3,8 +3,8 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using RulesUnitTestProject.Base;
-using RulesUnitTestProject.Classes;
 using RulesUnitTestProject.Models;
+using BaseDataValidatorLibrary.Helpers;
 
 namespace RulesUnitTestProject
 {
@@ -24,7 +24,7 @@ namespace RulesUnitTestProject
             };
 
             // act
-            var (success, _ ) = ValidationOperations.IsValidEntity(attachment);
+            var (success, _ ) = ValidationHelper.IsValidEntity(attachment);
 
             // assert
 
@@ -45,7 +45,7 @@ namespace RulesUnitTestProject
             };
 
             // act
-            var (success, _) = ValidationOperations.IsValidEntity(attachment);
+            var (success, _) = ValidationHelper.IsValidEntity(attachment);
 
             // assert
 
@@ -66,7 +66,7 @@ namespace RulesUnitTestProject
             };
 
             // act
-            var ( _ , errorMessages) = ValidationOperations.IsValidEntity(attachment);
+            var ( _ , errorMessages) = ValidationHelper.IsValidEntity(attachment);
 
             // assert
             Check.That(errorMessages).Contains(expected);

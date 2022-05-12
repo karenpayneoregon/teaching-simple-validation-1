@@ -9,8 +9,4 @@
     <ProjectReference Include="..\BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
-
 </Project>

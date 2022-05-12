@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using AnnotationValidationLibrary.Models;
 using Newtonsoft.Json;
+using Country = ValidatingFormProject.Models.Country;
+using Customer = ValidatingFormProject.Models.Customer;
 
 namespace ValidatingFormProject.Extensions
 {

@@ -8,10 +8,10 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseDataValidatorLibrary.CommonRules;
+using BaseDataValidatorLibrary.Helpers;
 using RulesUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
-using RulesUnitTestProject.Classes;
 
 namespace RulesUnitTestProject
 {
@@ -30,9 +30,9 @@ namespace RulesUnitTestProject
             var customer = Customer;
 
             // act
-            var (success, _) = ValidationOperations.IsValidEntity(customer);
+            var (success, _) = ValidationHelper.IsValidEntity(customer);
 
-            // assert
+            // assertB
 
             Check.That(success).IsTrue();
         }
@@ -47,7 +47,7 @@ namespace RulesUnitTestProject
             customer.BirthDate = new DateTime(2023, 1, 1);
 
             // act
-            var (success, _) = ValidationOperations.IsValidEntity(customer);
+            var (success, _) = ValidationHelper.IsValidEntity(customer);
 
             // assert
 
@@ -93,7 +93,7 @@ namespace RulesUnitTestProject
             customer.BirthDate = new DateTime(2030, 1, 1);
 
             // act
-            var (success, _) = ValidationOperations.IsValidEntity(customer);
+            var (success, _) = ValidationHelper.IsValidEntity(customer);
 
             // assert
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace BaseDataValidatorLibrary.CommonRules

@@ -8,11 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnnotationValidationLibrary.Models;
 using DirectoryHelpersLibrary.Classes;
 using ValidatingFormProject.Classes;
 using ValidatingFormProject.Extensions;
 using WindowsFormsLibrary.Classes;
+using BaseDataValidatorLibrary.Helpers;
+using Customer = ValidatingFormProject.Models.Customer;
 
 namespace ValidatingFormProject
 {
@@ -124,7 +125,7 @@ namespace ValidatingFormProject
                 var customer = _customerBindingSource.Customer();
 
                 customer.NotesList = Operations.CreateNotes(Convert.ToInt32(NotesComboBox.Text));
-                var (success, errorMessages) = ValidationOperations.IsValidCustomer(customer);
+                var (success, errorMessages) = ValidationHelper.IsValidEntity(customer); // ValidationOperations.IsValidEntity(customer);
 
                 if (!success)
                 {
@@ -140,6 +141,14 @@ namespace ValidatingFormProject
 
         }
 
-
+        /// <summary>
+        /// Cheap way to reset values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

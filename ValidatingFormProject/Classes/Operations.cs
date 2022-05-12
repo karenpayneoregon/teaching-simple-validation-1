@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using AnnotationValidationLibrary.Models;
 using Bogus;
+using Country = ValidatingFormProject.Models.Country;
+using Customer = ValidatingFormProject.Models.Customer;
 
 namespace ValidatingFormProject.Classes
 {
@@ -22,8 +23,6 @@ namespace ValidatingFormProject.Classes
             return list;
         }
 
-        private static readonly string _settingsFileName =
-            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomerSettings.json");
         /// <summary>
         /// Permits starting with a valid customer
         /// </summary>
@@ -93,10 +92,7 @@ namespace ValidatingFormProject.Classes
             {
                 Enumerable.Range(1, count).ToList().ForEach(x => list.Add(new Faker().Lorem.Sentences(1)));
                 return list;
-
             }
-
-            
         }
     }
 }

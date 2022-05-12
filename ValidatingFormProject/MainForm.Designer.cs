@@ -53,6 +53,7 @@ namespace ValidatingFormProject
             this.NotesComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SolutionNameLabel = new System.Windows.Forms.Label();
+            this.RestartButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -286,11 +287,25 @@ namespace ValidatingFormProject
             this.SolutionNameLabel.TabIndex = 26;
             this.SolutionNameLabel.Text = "Solution name";
             // 
+            // RestartButton
+            // 
+            this.RestartButton.Image = global::ValidatingFormProject.Properties.Resources.Exit_16x;
+            this.RestartButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RestartButton.Location = new System.Drawing.Point(328, 349);
+            this.RestartButton.Name = "RestartButton";
+            this.RestartButton.Size = new System.Drawing.Size(73, 36);
+            this.RestartButton.TabIndex = 27;
+            this.RestartButton.Text = "Restart";
+            this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RestartButton.UseVisualStyleBackColor = true;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 392);
+            this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.SolutionNameLabel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BirthDatePicker);
@@ -350,6 +365,7 @@ namespace ValidatingFormProject
         private System.Windows.Forms.ComboBox NotesComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label SolutionNameLabel;
+        private System.Windows.Forms.Button RestartButton;
     }
 }
 

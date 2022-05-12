@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Classes;
 using BaseDataValidatorLibrary.CommonRules;
+using BaseDataValidatorLibrary.Helpers;
 using CustomerEntityFrameworkTestProject.Base;
 using CustomerEntityFrameworkTestProject.Classes;
 using EntityFrameworkCoreLibrary.Classes;
@@ -49,6 +50,7 @@ namespace CustomerEntityFrameworkTestProject
             var name = CustomerValid.GetAttributeFrom<DisplayAttribute>(nameof(CustomerValid.BirthDate)).Name;
             Console.WriteLine(name);
 
+            // TODO only need one instance
             var minimumYear = CustomerValid.GetAttributeFrom<YearRangeAttribute>(nameof(CustomerValid.BirthDate)).MinimumYear;
             Console.WriteLine(minimumYear);
             var maximumYear = CustomerValid.GetAttributeFrom<YearRangeAttribute>(nameof(CustomerValid.BirthDate)).MaximumYear;
@@ -62,7 +64,7 @@ namespace CustomerEntityFrameworkTestProject
         [TestTraits(Trait.PlaceHolder)]
         public void AddCustomerRecordValidTest()
         {
-            var (success,  _) = ValidationOperations.IsValidEntity(CustomerValid);
+            var (success,  _) = ValidationHelper.IsValidEntity(CustomerValid);
 
             if (success)
             {
@@ -105,10 +107,10 @@ namespace CustomerEntityFrameworkTestProject
             StringBuilder builder = new();
             builder.AppendLine("First name is required");
             builder.AppendLine("Last name is required");
-            builder.AppendLine("BirthDate year must be between 1932 and 2022");
+            builder.AppendLine("Date of birth year must be between 1932 and 2022");
 
             // act
-            var (success, messages) = ValidationOperations.IsValidEntity(CustomerInvalid);
+            var (success, messages) = ValidationHelper.IsValidEntity(CustomerInvalid);
             if (success)
             {
                 // If model valid we add the a new record
@@ -132,10 +134,10 @@ namespace CustomerEntityFrameworkTestProject
             customer.BirthDate = new DateTime(1930, 1, 1);
 
             // act
-            var ( _ , messages) = ValidationOperations.IsValidEntity(customer);
+            var ( _ , messages) = ValidationHelper.IsValidEntity(customer);
 
             // assert
-            Check.That(messages).Equals("BirthDate year must be between 1932 and 2022");
+            Check.That(messages).Equals("Date of birth year must be between 1932 and 2022");
 
         }
     }
