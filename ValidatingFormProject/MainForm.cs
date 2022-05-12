@@ -12,7 +12,7 @@ using DirectoryHelpersLibrary.Classes;
 using ValidatingFormProject.Classes;
 using ValidatingFormProject.Extensions;
 using WindowsFormsLibrary.Classes;
-using BaseDataValidatorLibrary.Helpers;
+using static BaseDataValidatorLibrary.Helpers.ValidationHelper;
 using Customer = ValidatingFormProject.Models.Customer;
 
 namespace ValidatingFormProject
@@ -125,7 +125,7 @@ namespace ValidatingFormProject
                 var customer = _customerBindingSource.Customer();
 
                 customer.NotesList = Operations.CreateNotes(Convert.ToInt32(NotesComboBox.Text));
-                var (success, errorMessages) = ValidationHelper.IsValidEntity(customer);
+                var (success, errorMessages) = IsValidEntity(customer);
 
                 if (!success)
                 {

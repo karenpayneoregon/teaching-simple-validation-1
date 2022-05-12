@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ValidatorLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:ValidatorLibrary.Classes.EntityValidationResult">
+            <summary>
+            Container for validation results
+            </summary>
+        </member>
+        <member name="P:ValidatorLibrary.Classes.EntityValidationResult.Errors">
+            <summary>
+            List of validation errors
+            </summary>
+        </member>
+        <member name="P:ValidatorLibrary.Classes.EntityValidationResult.HasError">
+            <summary>
+            Model has errors
+            </summary>
+        </member>
+        <member name="P:ValidatorLibrary.Classes.EntityValidationResult.IsValid">
+            <summary>
+            Model state is valid
+            </summary>
+        </member>
+        <member name="P:ValidatorLibrary.Classes.EntityValidationResult.IsNotValid">
+            <summary>
+            Model state is invalid
+            </summary>
+        </member>
+        <member name="M:ValidatorLibrary.Classes.EntityValidationResult.#ctor(System.Collections.Generic.IList{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            Get any validation errors
+            </summary>
+            <param name="errors">List of <see cref="T:System.ComponentModel.DataAnnotations.ValidationResult"/></param>
+        </member>
+        <member name="T:ValidatorLibrary.Classes.EntityValidator`1">
+            <summary>
+            Wrapper for generic validator
+            </summary>
+            <typeparam name="T"><see cref="!:T"/></typeparam>
+        </member>
+        <member name="M:ValidatorLibrary.Classes.EntityValidator`1.Validate(`0)">
+            <summary>
+            Used to validate a model
+            </summary>
+            <param name="entity">instance of model</param>
+            <returns><see cref="T:ValidatorLibrary.Classes.EntityValidationResult"/></returns>
+        </member>
+        <member name="T:ValidatorLibrary.Classes.ValidationHelper">
+            <summary>
+            Wrappers for model validation
+            </summary>
+        </member>
+        <member name="M:ValidatorLibrary.Classes.ValidationHelper.ValidateEntity``1(``0)">
+            <summary>
+            Validate entity against validation rules
+            </summary>
+            <typeparam name="T">model type</typeparam>
+            <param name="entity">instance of model</param>
+            <returns><see cref="T:ValidatorLibrary.Classes.EntityValidationResult"/> for <typeparam name="T">model type</typeparam></returns>
+        </member>
+        <member name="M:ValidatorLibrary.Classes.ValidationHelper.IsValidEntity``1(``0)">
+            <summary>
+            Validate entity
+            </summary>
+            <typeparam name="T">model</typeparam>
+            <param name="entity">Customer instance</param>
+            <returns>success and if not valid error messages</returns>
+        </member>
+    </members>
+</doc>

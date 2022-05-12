@@ -5,4 +5,8 @@
 	  <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\OED\Dotnetland\VS2019\DataAnnotationsValidationSolution\ValidatorLibrary\ValidatorLibrary.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

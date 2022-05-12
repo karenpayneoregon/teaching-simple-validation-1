@@ -3,20 +3,24 @@ using System.Text;
 
 namespace ValidatorLibrary.Classes
 {
+    /// <summary>
+    /// Wrappers for model validation
+    /// </summary>
     public class ValidationHelper
     {
         /// <summary>
         /// Validate entity against validation rules
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="entity"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">model type</typeparam>
+        /// <param name="entity">instance of model</param>
+        /// <returns><see cref="EntityValidationResult"/> for <typeparam name="T">model type</typeparam></returns>
         public static EntityValidationResult ValidateEntity<T>(T entity) where T : class 
             => (new EntityValidator<T>()).Validate(entity);
 
         /// <summary>
         /// Validate entity
         /// </summary>
+        /// <typeparam name="T">model</typeparam>
         /// <param name="entity">Customer instance</param>
         /// <returns>success and if not valid error messages</returns>
         public static (bool success, string errorMessages) IsValidEntity<T>(T entity) where T : class

@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ValidatorLibrary.Classes
 {
+    /// <summary>
+    /// Container for validation results
+    /// </summary>
     public class EntityValidationResult
     {
         /// <summary>
@@ -25,6 +28,10 @@ namespace ValidatorLibrary.Classes
         /// </summary>
         public bool IsNotValid => Errors.Count > 0;
 
+        /// <summary>
+        /// Get any validation errors
+        /// </summary>
+        /// <param name="errors">List of <see cref="ValidationResult"/></param>
         public EntityValidationResult(IList<ValidationResult> errors = null)
         {
             Errors = errors ?? new List<ValidationResult>();
