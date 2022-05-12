@@ -37,11 +37,8 @@ namespace RulesUnitTestProject.Models
             }
         }
 
-
-
         public override string ToString() => $"{FirstName} {LastName}";
-
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

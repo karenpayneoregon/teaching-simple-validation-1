@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class GreaterThanAttribute : ValidationAttribute
+    public class LesserThanAttribute : ValidationAttribute
     {
         /// <summary>
         /// Assert a value is greater than <see cref="Maximum"/>
         /// </summary>
         /// <param name="maximum">value to validate</param>
-        public GreaterThanAttribute(int maximum)
+        public LesserThanAttribute(int maximum)
         {
             Maximum = maximum;
         }
@@ -29,7 +25,7 @@ namespace BaseDataValidatorLibrary.CommonRules
                 ErrorMessage = "is unacceptable";
             }
 
-            return $"{name} must be greater than {Maximum}";
+            return $"{name} must be less than {Maximum}";
 
         }
 
@@ -37,10 +33,12 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             if (sender is not null)
             {
-                return sender is int value && value > Maximum;
+                return sender is int value && value < Maximum;
             }
-
-            return false;
+            else
+            {
+                return false;
+            }
         }
     }
 }

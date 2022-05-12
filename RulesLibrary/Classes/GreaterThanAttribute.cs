@@ -34,7 +34,7 @@ namespace RulesLibrary.Classes
 
             if (firstComparable != null && secondComparable != null)
             {
-                if (firstComparable.CompareTo(secondComparable) < 1)
+                if (firstComparable.CompareTo(secondComparable) > 0)
                 {
                     return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                 }

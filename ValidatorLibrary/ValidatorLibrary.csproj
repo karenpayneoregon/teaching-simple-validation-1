@@ -1,12 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 	  <LangVersion>9.0</LangVersion>
 	  <TargetFramework>net5.0</TargetFramework>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageProjectUrl>https://github.com/karenpayneoregon/teaching-simple-validation-1/tree/master/ValidatorLibrary</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/karenpayneoregon/teaching-simple-validation-1</RepositoryUrl>
+	  <Description>Provides simple methods used to validate against data annotations</Description>
+	  <Copyright>Karen Payne</Copyright>
+	  <PackageIcon>NuGetFile.png</PackageIcon>
+	  <PackageIconUrl />
+	  <ApplicationIcon>Library.ico</ApplicationIcon>
+	  <Company>Karen Payne</Company>
+	  <Product>ValidatorLibrary for data annotations</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\OED\Dotnetland\VS2019\DataAnnotationsValidationSolution\ValidatorLibrary\ValidatorLibrary.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="assets\NuGetFile.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

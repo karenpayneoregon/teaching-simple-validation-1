@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
@@ -19,7 +20,7 @@ namespace ValidatorLibraryTestProject
             StringBuilder builder = new();
             builder.AppendLine("First name is required");
             builder.AppendLine("Last name is required");
-            Customer customer = new ();
+            Customer customer = new();
             // act
             var (success, messages) = IsValidEntity(customer);
 
@@ -31,7 +32,7 @@ namespace ValidatorLibraryTestProject
         public void ValidCustomerTest()
         {
             // arrange
-            Customer customer = new() {FirstName = "Karen", LastName = "Payne"};
+            Customer customer = new() { FirstName = "Karen", LastName = "Payne" };
 
             // act
             var (success, messages) = IsValidEntity(customer);
@@ -69,4 +70,24 @@ namespace ValidatorLibraryTestProject
         }
         #endregion
     }
+
+
+    public class FinancialCycle
+    {
+        public List<FinancialCycleInventoryTurn> TurnoverDate { get; set; }
+        public bool EnableTurnover { get; set; }
+    }
+
+    public class FinancialCycleInventoryTurn
+    {
+        public int Days { get; set; }
+        public Period[] Period { get; set; }
+    }
+
+    public class Period
+    {
+        public string Value { get; set; }
+        public string Description { get; set; }
+    }
+
 }
