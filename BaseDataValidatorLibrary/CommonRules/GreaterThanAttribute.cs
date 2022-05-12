@@ -1,38 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
     /// <summary>
-    /// Provides rule to ensure property value is greater than a given value
+    /// Provides rule to ensure property value is not less than <see cref="Minimum"/>
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class GreaterThanAttribute : ValidationAttribute
     {
         /// <summary>
-        /// Assert a value is greater than <see cref="Maximum"/>
+        /// Assert a value is greater than <see cref="Minimum"/>
         /// </summary>
-        /// <param name="maximum">value to validate</param>
-        public GreaterThanAttribute(int maximum)
+        /// <param name="minimum">value to validate</param>
+        public GreaterThanAttribute(int minimum)
         {
-            Maximum = maximum;
+            Minimum = minimum;
         }
-        /// <summary>
-        /// Max value
-        /// </summary>
-        public int Maximum { get; set; }
+        public int Minimum { get; set; }
         public override string FormatErrorMessage(string name)
         {
-            if (ErrorMessage == null && ErrorMessageResourceName == null)
+            if (ErrorMessage is null && ErrorMessageResourceName is null)
             {
                 ErrorMessage = "is unacceptable";
             }
 
-            return $"{name} must be greater than {Maximum}";
+            return $"{name} must be greater than {Minimum}";
 
         }
 
@@ -40,7 +33,7 @@ namespace BaseDataValidatorLibrary.CommonRules
         {
             if (sender is not null)
             {
-                return sender is int value && value > Maximum;
+                return sender is int value && value > Minimum;
             }
 
             return false;
