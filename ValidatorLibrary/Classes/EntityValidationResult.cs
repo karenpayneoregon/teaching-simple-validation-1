@@ -14,10 +14,15 @@ namespace ValidatorLibrary.Classes
         /// Model has errors
         /// </summary>
         public bool HasError => Errors.Count > 0;
+
         /// <summary>
-        /// Model is valid
+        /// Model state is valid
         /// </summary>
         public bool IsValid => Errors.Count == 0;
+
+        /// <summary>
+        /// Model state is invalid
+        /// </summary>
         public bool IsNotValid => Errors.Count > 0;
 
         public EntityValidationResult(IList<ValidationResult> errors = null)
