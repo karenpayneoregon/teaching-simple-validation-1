@@ -55,7 +55,7 @@ namespace ValidatingFormProject.Models
         public DateTime AppointmentDate { get; set; }
 
         [Required]
-        public ValidatingFormProject.Models.Country Country
+        public Country Country
         {
             get => _country;
             set
