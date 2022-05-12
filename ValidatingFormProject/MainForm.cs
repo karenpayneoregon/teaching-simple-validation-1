@@ -125,7 +125,7 @@ namespace ValidatingFormProject
                 var customer = _customerBindingSource.Customer();
 
                 customer.NotesList = Operations.CreateNotes(Convert.ToInt32(NotesComboBox.Text));
-                var (success, errorMessages) = ValidationHelper.IsValidEntity(customer); // ValidationOperations.IsValidEntity(customer);
+                var (success, errorMessages) = ValidationHelper.IsValidEntity(customer);
 
                 if (!success)
                 {

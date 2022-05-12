@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace BaseDataValidatorLibrary.Helpers
+namespace ValidatorLibrary.Classes
 {
     public class ValidationHelper
     {
@@ -11,10 +11,8 @@ namespace BaseDataValidatorLibrary.Helpers
         /// <typeparam name="T"></typeparam>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public static EntityValidationResult ValidateEntity<T>(T entity) where T : class
-        {
-            return (new EntityValidator<T>()).Validate(entity);
-        }
+        public static EntityValidationResult ValidateEntity<T>(T entity) where T : class 
+            => (new EntityValidator<T>()).Validate(entity);
 
         /// <summary>
         /// Validate entity
@@ -37,7 +35,6 @@ namespace BaseDataValidatorLibrary.Helpers
                     result.Errors.ToList().ForEach(x => builder.AppendLine(x.ErrorMessage));
                     return (false, builder.ToString());
                 }
-
             }
             else
             {
