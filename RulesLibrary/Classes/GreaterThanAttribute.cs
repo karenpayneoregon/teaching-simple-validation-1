@@ -3,62 +3,43 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RulesLibrary.Classes
 {
+    /// <summary>
+    /// Provides rule to ensure property value is greater than a given value
+    /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class GreaterThanAttribute : ValidationAttribute
     {
-        public GreaterThanAttribute(string otherProperty) : base("{0} must be greater than {1}")
+        /// <summary>
+        /// Assert a value is greater than <see cref="Maximum"/>
+        /// </summary>
+        /// <param name="maximum">value to validate</param>
+        public GreaterThanAttribute(int maximum)
         {
-            OtherProperty = otherProperty;
+            Maximum = maximum;
         }
-
         /// <summary>
-        /// Value for comparing
+        /// Max value
         /// </summary>
-        public string OtherProperty { get; set; }
-
-        /// <summary>
-        /// Applies formatting to an error message, based on the data field where the error occurred.
-        /// </summary>
-        /// <param name="name">The name to include in the formatted message.</param>
-        /// <returns>An instance of the formatted error message.</returns>
-        public override string FormatErrorMessage(string name) 
-            => string.Format(ErrorMessageString, name, OtherProperty);
-
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        protected override ValidationResult IsValid(object firstValue, ValidationContext validationContext)
+        public int Maximum { get; set; }
+        public override string FormatErrorMessage(string name)
         {
-            var firstComparable = firstValue as IComparable;
-            var secondComparable = GetSecondComparable(validationContext);
-
-            if (firstComparable != null && secondComparable != null)
+            if (ErrorMessage == null && ErrorMessageResourceName == null)
             {
-                if (firstComparable.CompareTo(secondComparable) > 0)
-                {
-                    return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
-                }
+                ErrorMessage = "is unacceptable";
             }
 
-            return ValidationResult.Success;
+            return $"{name} must be greater than {Maximum}";
+
         }
 
-        /// <summary>
-        /// Comparer for use in comparision 
-        /// </summary>
-        /// <param name="validationContext"></param>
-        /// <returns></returns>
-        protected IComparable GetSecondComparable(ValidationContext validationContext)
+        public override bool IsValid(object sender)
         {
-            var propertyInfo = validationContext.ObjectType.GetProperty(OtherProperty);
-
-            if (propertyInfo != null)
+            if (sender is not null)
             {
-                var secondValue = propertyInfo.GetValue(validationContext.ObjectInstance, null);
-                return secondValue as IComparable;
+                return sender is int value && value > Maximum;
             }
 
-            return null;
+            return false;
         }
     }
 }

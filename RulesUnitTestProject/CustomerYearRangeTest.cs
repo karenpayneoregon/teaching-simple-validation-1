@@ -32,7 +32,7 @@ namespace RulesUnitTestProject
             // act
             var (success, _) = ValidationHelper.IsValidEntity(customer);
 
-            // assertB
+            // assert
 
             Check.That(success).IsTrue();
         }

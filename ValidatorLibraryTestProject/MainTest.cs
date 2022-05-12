@@ -70,24 +70,4 @@ namespace ValidatorLibraryTestProject
         }
         #endregion
     }
-
-
-    public class FinancialCycle
-    {
-        public List<FinancialCycleInventoryTurn> TurnoverDate { get; set; }
-        public bool EnableTurnover { get; set; }
-    }
-
-    public class FinancialCycleInventoryTurn
-    {
-        public int Days { get; set; }
-        public Period[] Period { get; set; }
-    }
-
-    public class Period
-    {
-        public string Value { get; set; }
-        public string Description { get; set; }
-    }
-
 }
