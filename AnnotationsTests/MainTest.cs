@@ -52,8 +52,11 @@ namespace AnnotationsTests
                 LastName = "12345678901",
                 Country = new Models.Normal.Country()
             };
+
             var (_ , messages) = NuGetLibrary.IsValidEntity(customer);
+
             Console.WriteLine(messages);
+
         }
 
     }
