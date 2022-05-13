@@ -71,7 +71,7 @@ namespace ValidatingFormProject.Models
         [Display(Prompt = "Security pin")]
         public string Pin { get; set; }
 
-        [SocialSecurity]
+        [SocialSecurityAttribute]
         [Display(Prompt = "SSN")]
         public string SocialSecurity { get; set; }
 

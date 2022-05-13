@@ -19,3 +19,4 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
                Comparer<T>.Default.Compare(value, upperValue) <= 0;
     }
 }
+

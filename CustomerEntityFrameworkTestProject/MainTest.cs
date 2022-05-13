@@ -1,3 +1,4 @@
+using EntityFrameworkCoreLibrary.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
@@ -79,6 +80,7 @@ namespace CustomerEntityFrameworkTestProject
         [TestTraits(Trait.EntityFrameworkValidationAnnotations)]
         public void InvalidCustomerNoValidationTest()
         {
+
             using var context = new ExampleContext();
             context.Add(CustomerInvalid);
             try

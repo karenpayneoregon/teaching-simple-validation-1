@@ -19,13 +19,38 @@ namespace AnnotationsTests
         public void InvalidCustomerNoFirstOrLastNameTest()
         {
             // arrange
+            StringBuilder builder = new();
+            builder.AppendLine("First name is required");
+            builder.AppendLine("Last name is required");
 
+            var customer = FirstCustomer;
+
+            customer.FirstName = "";
+            customer.LastName = "";
 
             // act
+            var ( _ , messages) = NuGetLibrary.IsValidEntity(customer);
+            
+            // assert
+            Check.That(messages).ContainsExactly(builder.ToString());
+        }
 
+
+        [TestMethod]
+        [TestTraits(Trait.AnnotationAttribute)]
+        public void InvalidCustomerTest()
+        {
+            // arrange
+            var customer = FirstCustomer;
+
+            customer.FirstName = "";
+            customer.LastName = "";
+
+            // act
+            var ( success, _ ) = NuGetLibrary.IsValidEntity(customer);
 
             // assert
-
+            Check.That(success).IsFalse();
         }
 
         [TestMethod]
@@ -34,11 +59,15 @@ namespace AnnotationsTests
         {
             // arrange
 
+            var customer = FirstCustomer;
+
 
             // act
 
+            var (success, _ ) = NuGetLibrary.IsValidEntity(customer);
 
             // assert
+            Check.That(success).IsTrue();
 
         }
 
@@ -49,7 +78,7 @@ namespace AnnotationsTests
             var customer = new Models.Normal.Customer()
             {
                 FirstName = "K",
-                LastName = "12345678901",
+                LastName = "This happens to be a very long name",
                 Country = new Models.Normal.Country()
             };
 

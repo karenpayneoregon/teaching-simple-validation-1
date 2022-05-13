@@ -20,6 +20,7 @@ namespace AnnotationsTests.Models.Normal
         public string FirstName { get; set; }
         [Required]
         [StringLength(maximumLength: 10, MinimumLength = 4, ErrorMessage = "Description Max Length is 100")]
+
         public string LastName { get; set; }
         public string Email { get; set; }
         public decimal CreditLimit { get; set; }

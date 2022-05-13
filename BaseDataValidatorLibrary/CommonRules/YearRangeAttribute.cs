@@ -31,8 +31,10 @@ namespace BaseDataValidatorLibrary.CommonRules
 
         }
 
-        public override bool IsValid(object sender) 
+        public override bool IsValid(object sender)
             => ((DateTime)sender).Year.Between(MinimumYear, MaximumYear);
+
+
     }
 }
 

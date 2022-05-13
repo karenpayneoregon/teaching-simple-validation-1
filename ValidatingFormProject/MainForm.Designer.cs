@@ -32,30 +32,30 @@ namespace ValidatingFormProject
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CountryComboBox = new System.Windows.Forms.ComboBox();
             this.ValidateButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CountryGroupBox = new System.Windows.Forms.GroupBox();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.PinLabel = new System.Windows.Forms.Label();
             this.PinTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.SocailLabel = new System.Windows.Forms.Label();
             this.SocialSecurityNumberTextBox = new System.Windows.Forms.TextBox();
             this.ShowHidePasswordCheckBox = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.PostalLabel = new System.Windows.Forms.Label();
             this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.BirthDateLabel = new System.Windows.Forms.Label();
+            this.CreditCardLabel = new System.Windows.Forms.Label();
             this.CreditCardTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.AppointmentDateLabel = new System.Windows.Forms.Label();
             this.AppointmentDateTimePicker1 = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.BirthDatePicker = new WindowsFormsLibrary.Controls.NullableDateTimePicker();
             this.NotesComboBox = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.NotesGroupBox = new System.Windows.Forms.GroupBox();
             this.SolutionNameLabel = new System.Windows.Forms.Label();
             this.RestartButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.CountryGroupBox.SuspendLayout();
+            this.NotesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // CountryComboBox
@@ -84,15 +84,15 @@ namespace ValidatingFormProject
             this.ValidateButton.UseVisualStyleBackColor = true;
             this.ValidateButton.Click += new System.EventHandler(this.ValidateButton_Click);
             // 
-            // groupBox1
+            // CountryGroupBox
             // 
-            this.groupBox1.Controls.Add(this.CountryComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(269, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 75);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "C&ountry";
+            this.CountryGroupBox.Controls.Add(this.CountryComboBox);
+            this.CountryGroupBox.Location = new System.Drawing.Point(269, 81);
+            this.CountryGroupBox.Name = "CountryGroupBox";
+            this.CountryGroupBox.Size = new System.Drawing.Size(226, 75);
+            this.CountryGroupBox.TabIndex = 2;
+            this.CountryGroupBox.TabStop = false;
+            this.CountryGroupBox.Text = "C&ountry";
             // 
             // FirstNameLabel
             // 
@@ -122,23 +122,23 @@ namespace ValidatingFormProject
             this.LastNameTextBox.TabIndex = 6;
             this.LastNameTextBox.Text = "Payne";
             // 
-            // label2
+            // LastNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "&Last name";
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(16, 75);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(61, 15);
+            this.LastNameLabel.TabIndex = 5;
+            this.LastNameLabel.Text = "&Last name";
             // 
-            // label3
+            // PinLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(250, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Pi&n";
+            this.PinLabel.AutoSize = true;
+            this.PinLabel.Location = new System.Drawing.Point(250, 13);
+            this.PinLabel.Name = "PinLabel";
+            this.PinLabel.Size = new System.Drawing.Size(24, 15);
+            this.PinLabel.TabIndex = 7;
+            this.PinLabel.Text = "Pi&n";
             // 
             // PinTextBox
             // 
@@ -149,14 +149,14 @@ namespace ValidatingFormProject
             this.PinTextBox.TabIndex = 8;
             this.PinTextBox.Text = "1234";
             // 
-            // label4
+            // SocailLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(246, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "&SSN";
+            this.SocailLabel.AutoSize = true;
+            this.SocailLabel.Location = new System.Drawing.Point(246, 45);
+            this.SocailLabel.Name = "SocailLabel";
+            this.SocailLabel.Size = new System.Drawing.Size(28, 15);
+            this.SocailLabel.TabIndex = 9;
+            this.SocailLabel.Text = "&SSN";
             // 
             // SocialSecurityNumberTextBox
             // 
@@ -177,14 +177,14 @@ namespace ValidatingFormProject
             this.ShowHidePasswordCheckBox.UseVisualStyleBackColor = true;
             this.ShowHidePasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowHidePasswordCheckBox_CheckedChanged);
             // 
-            // label5
+            // PostalLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "&Postal code";
+            this.PostalLabel.AutoSize = true;
+            this.PostalLabel.Location = new System.Drawing.Point(16, 183);
+            this.PostalLabel.Name = "PostalLabel";
+            this.PostalLabel.Size = new System.Drawing.Size(68, 15);
+            this.PostalLabel.TabIndex = 12;
+            this.PostalLabel.Text = "&Postal code";
             // 
             // PostalCodeTextBox
             // 
@@ -194,23 +194,23 @@ namespace ValidatingFormProject
             this.PostalCodeTextBox.TabIndex = 13;
             this.PostalCodeTextBox.Text = "97209";
             // 
-            // label6
+            // BirthDateLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Birth &date";
+            this.BirthDateLabel.AutoSize = true;
+            this.BirthDateLabel.Location = new System.Drawing.Point(16, 132);
+            this.BirthDateLabel.Name = "BirthDateLabel";
+            this.BirthDateLabel.Size = new System.Drawing.Size(58, 15);
+            this.BirthDateLabel.TabIndex = 17;
+            this.BirthDateLabel.Text = "Birth &date";
             // 
-            // label7
+            // CreditCardLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 239);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 15);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "&Credit card number";
+            this.CreditCardLabel.AutoSize = true;
+            this.CreditCardLabel.Location = new System.Drawing.Point(16, 239);
+            this.CreditCardLabel.Name = "CreditCardLabel";
+            this.CreditCardLabel.Size = new System.Drawing.Size(110, 15);
+            this.CreditCardLabel.TabIndex = 18;
+            this.CreditCardLabel.Text = "&Credit card number";
             // 
             // CreditCardTextBox
             // 
@@ -219,14 +219,14 @@ namespace ValidatingFormProject
             this.CreditCardTextBox.Size = new System.Drawing.Size(171, 23);
             this.CreditCardTextBox.TabIndex = 19;
             // 
-            // label1
+            // AppointmentDateLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 295);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 15);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Appintment date";
+            this.AppointmentDateLabel.AutoSize = true;
+            this.AppointmentDateLabel.Location = new System.Drawing.Point(20, 295);
+            this.AppointmentDateLabel.Name = "AppointmentDateLabel";
+            this.AppointmentDateLabel.Size = new System.Drawing.Size(97, 15);
+            this.AppointmentDateLabel.TabIndex = 20;
+            this.AppointmentDateLabel.Text = "Appintment date";
             // 
             // AppointmentDateTimePicker1
             // 
@@ -268,15 +268,15 @@ namespace ValidatingFormProject
             this.NotesComboBox.Size = new System.Drawing.Size(121, 23);
             this.NotesComboBox.TabIndex = 24;
             // 
-            // groupBox2
+            // NotesGroupBox
             // 
-            this.groupBox2.Controls.Add(this.NotesComboBox);
-            this.groupBox2.Location = new System.Drawing.Point(272, 162);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 62);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Notes count";
+            this.NotesGroupBox.Controls.Add(this.NotesComboBox);
+            this.NotesGroupBox.Location = new System.Drawing.Point(272, 162);
+            this.NotesGroupBox.Name = "NotesGroupBox";
+            this.NotesGroupBox.Size = new System.Drawing.Size(223, 62);
+            this.NotesGroupBox.TabIndex = 25;
+            this.NotesGroupBox.TabStop = false;
+            this.NotesGroupBox.Text = "Notes count";
             // 
             // SolutionNameLabel
             // 
@@ -307,25 +307,25 @@ namespace ValidatingFormProject
             this.ClientSize = new System.Drawing.Size(513, 392);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.SolutionNameLabel);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.NotesGroupBox);
             this.Controls.Add(this.BirthDatePicker);
             this.Controls.Add(this.AppointmentDateTimePicker1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AppointmentDateLabel);
             this.Controls.Add(this.CreditCardTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CreditCardLabel);
+            this.Controls.Add(this.BirthDateLabel);
             this.Controls.Add(this.PostalCodeTextBox);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.PostalLabel);
             this.Controls.Add(this.ShowHidePasswordCheckBox);
             this.Controls.Add(this.SocialSecurityNumberTextBox);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.SocailLabel);
             this.Controls.Add(this.PinTextBox);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.PinLabel);
             this.Controls.Add(this.LastNameTextBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.FirstNameLabel);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.CountryGroupBox);
             this.Controls.Add(this.ValidateButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -333,8 +333,8 @@ namespace ValidatingFormProject
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Validation code sample";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.CountryGroupBox.ResumeLayout(false);
+            this.NotesGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,26 +344,26 @@ namespace ValidatingFormProject
 
         private System.Windows.Forms.ComboBox CountryComboBox;
         private System.Windows.Forms.Button ValidateButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox CountryGroupBox;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.TextBox LastNameTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Label PinLabel;
         private System.Windows.Forms.TextBox PinTextBox;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label SocailLabel;
         private System.Windows.Forms.TextBox SocialSecurityNumberTextBox;
         private System.Windows.Forms.CheckBox ShowHidePasswordCheckBox;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label PostalLabel;
         private System.Windows.Forms.TextBox PostalCodeTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label BirthDateLabel;
+        private System.Windows.Forms.Label CreditCardLabel;
         private System.Windows.Forms.TextBox CreditCardTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AppointmentDateLabel;
         private WindowsFormsLibrary.Controls.NullableDateTimePicker AppointmentDateTimePicker1;
         private WindowsFormsLibrary.Controls.NullableDateTimePicker BirthDatePicker;
         private System.Windows.Forms.ComboBox NotesComboBox;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox NotesGroupBox;
         private System.Windows.Forms.Label SolutionNameLabel;
         private System.Windows.Forms.Button RestartButton;
     }

@@ -70,7 +70,7 @@ namespace BaseDataValidatorLibrary.Classes
         }
 
         /// <summary>
-        /// PascalCase property name
+        /// PascalCase property name FirstName First Name
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TV"></typeparam>
