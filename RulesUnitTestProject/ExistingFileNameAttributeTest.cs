@@ -57,17 +57,17 @@ namespace RulesUnitTestProject
         public void FileAttachmentFileExistsTest()
         {
             // arrange
-            var expected = "Sorry but there is already an image with this name please rename your image";
+            var expected = "Sorry but there is already an file with this name please rename your file";
             string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ShakeMe.gif");
             FileAttachment attachment = new()
             {
                 FileName = fileName,
-                Description = null
+                Description = "Whatever"
             };
 
             // act
             var ( _ , errorMessages) = ValidationHelper.IsValidEntity(attachment);
-
+            Console.WriteLine(errorMessages);
             // assert
             Check.That(errorMessages).Contains(expected);
         }
