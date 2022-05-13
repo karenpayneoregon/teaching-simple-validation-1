@@ -15,7 +15,11 @@ namespace AnnotationsTests.Models.Normal
     public class Customer
     {
         public int Id { get; set; }
+        [Required]
+        [StringLength(maximumLength: 10, MinimumLength = 4, ErrorMessage = "{0} must be at {1} characters and at least {2} characters long")]
         public string FirstName { get; set; }
+        [Required]
+        [StringLength(maximumLength: 10, MinimumLength = 4, ErrorMessage = "Description Max Length is 100")]
         public string LastName { get; set; }
         public string Email { get; set; }
         public decimal CreditLimit { get; set; }
