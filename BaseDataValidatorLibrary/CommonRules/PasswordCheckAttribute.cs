@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 namespace BaseDataValidatorLibrary.CommonRules
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class PasswordCheck : ValidationAttribute
+    public class PasswordCheckAttribute : ValidationAttribute
     {
         /// <summary>
         ///  Override of <see cref="ValidationAttribute.IsValid(object)" />

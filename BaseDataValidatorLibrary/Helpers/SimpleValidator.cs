@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BaseDataValidatorLibrary.Helpers
 {
+    /// <summary>
+    /// Provides an alternate to code in ValidatorLibrary.ValidationHelper.IsValidEntity and Model.Validate
+    /// </summary>
     public static class SimpleValidator
     {
         /// <summary>
@@ -23,25 +26,15 @@ namespace BaseDataValidatorLibrary.Helpers
         }
 
         /// <summary>
-        /// Validate the model and return a bit indicating whether the model is valid or not.
+        /// Validate model
         /// </summary>
+        /// <param name="model">Class instance to validate</param>
+        /// <returns></returns>
         public static bool IsModelValid(object model)
         {
             var response = Validate(model);
 
             return response.IsValid;
-        }
-    }
-
-    public class ValidationResponse
-    {
-        public List<ValidationResult> Results { get; set; }
-        public bool IsValid { get; set; }
-
-        public ValidationResponse()
-        {
-            Results = new List<ValidationResult>();
-            IsValid = false;
         }
     }
 }

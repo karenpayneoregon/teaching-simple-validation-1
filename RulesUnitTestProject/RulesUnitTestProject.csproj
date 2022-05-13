@@ -16,7 +16,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj" />
-	  <ProjectReference Include="..\AnnotationValidationLibrary\AnnotationValidationLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

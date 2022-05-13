@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="077a15fd-0b25-4ee1-8fbb-9aad4c1064c1" revisionNumber="1">
+  <developerHowToDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <introduction>
+      <para>This library provides methods to validate a model using <legacyItalic>Data Annotations</legacyItalic> which can be used by the following 
+      <legacyBold>NuGet package</legacyBold> dotnet add package ValidatorLibrary.</para>
+      <para></para>
+      
+      <para>
+      	Below are two examples to learn from  
+      	(<externalLink>
+      		<linkText>source repository</linkText>
+      		<linkAlternateText>Github repository</linkAlternateText>
+      		<linkUri>https://github.com/karenpayneoregon/teaching-simple-validation-1</linkUri> 
+      		which can be cloned and then examine full source.
+			<linkTarget>_blank</linkTarget>
+		</externalLink>), 
+		both projects have a static reference to <codeInline>using static ValidatorLibrary.Classes.ValidationHelper</codeInline>
+		</para>
+
+      <para></para>
+      
+    </introduction>
+    <code source=".\validate.cs"  region="cs snippet 1" language="cs" title="Unit test" />
+    <code source=".\validate.cs"  region="cs snippet 2" language="cs" title="Desktop" />
+    
+
+<alert class="note">
+  <para>See the following project for .NET Framework 4.8 code which provides similar code to this  
+  <externalLink>
+	<linkText>library</linkText>
+	<linkAlternateText></linkAlternateText>
+	<linkUri>https://github.com/karenpayneoregon/wpf-login-annotations-cs/tree/master/ValidationLibrary</linkUri>
+	<linkTarget>_blank</linkTarget>
+</externalLink>  
+  </para>
+  
+
+
+  
+  
+</alert>
+
+
+
+  </developerHowToDocument>
+</topic>
+
+
+

@@ -6,12 +6,16 @@ Some of the classes are duplicates of classes in the .NET Framework, there are c
 |:------------- |:-------------|
 | CheckPhoneValidationAttribute | Specifies that a data field value is a well-formed phone number. | There is also [PhoneAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.phoneattribute?view=net-5.0) |
 | EqualToAttribute | Validates that the property has the same value as the given 'otherProperty'  | There is also [CompareAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.compareattribute?view=net-5.0) |
-| ListHasElements | Use to validate a property of type `List` has at least one element  |  |
+| ExistingFileNameAttribute| Provides rules for disallowing selection of an existing file along with ensuring a description has been entered for the file. |
+| ListHasElementsAttribute | Use to validate a property of type `List` has at least one element  |  |
 | MyStringLengthAttribute | Duplicates StringLength | Basically shows that if StringLength does not suit requirements write your own  |
+| PasswordCheckAttribute | Custom password rules | |
 | RequiredEnumAttribute | Validates a property of type Enum is assigned |  |
-| SocialSecurityAttribute | Simple SSN validation | See also [1] |
+| SocialSecurityAttribute | Simple SSN validation | ~~~See also [1]~~~ |
 | ValidateYearsAttribute | Validate a date is in a specific year range  |  |
-
+| WeekendDateNotPermittedAttribute | Disallow date to be a weekend date | |
+| YearRangeAttribute | Rule for min/max year for a DateTime property| | |
+| WeekendDateNotPermittedAttribute | Weekend date not permitted | |
 
 
 ## Additional methods for SSN validation

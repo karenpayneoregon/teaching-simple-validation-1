@@ -2,7 +2,7 @@
 
 Provides methods for validating models using data annotations.
 
-- The main purpose of this library is for teaching. For real work use `ValidatorLibrary` combined with `RulesLibrary`. 
+- The main purpose of this library is for teaching. For real work use NuGet package [ValidatorLibrary](https://www.nuget.org/packages/ValidatorLibrary/)  combined with `RulesLibrary`. 
 
 - By separating specialty rules and validation methods into two libraries means that a developer does not need to bring in unnecessary code into a project.
 

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{ED9AA996-E50F-435B-88A3-7D589BFE8E26}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnotationValidationLibrary", "AnnotationValidationLibrary\AnnotationValidationLibrary.csproj", "{4099AD0D-D5D8-40AA-8788-DAC29D712222}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseDataValidatorLibrary", "BaseDataValidatorLibrary\BaseDataValidatorLibrary.csproj", "{88FA6678-1551-417C-A70B-C1A5D53CA925}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7FD3BBA-7B57-417D-83A3-2A2EC6EBEC38}"
@@ -43,10 +41,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4099AD0D-D5D8-40AA-8788-DAC29D712222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4099AD0D-D5D8-40AA-8788-DAC29D712222}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4099AD0D-D5D8-40AA-8788-DAC29D712222}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4099AD0D-D5D8-40AA-8788-DAC29D712222}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88FA6678-1551-417C-A70B-C1A5D53CA925}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,7 +86,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4099AD0D-D5D8-40AA-8788-DAC29D712222} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
 		{88FA6678-1551-417C-A70B-C1A5D53CA925} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
 		{6EFE9DB9-42E8-4F8F-8221-B66F10276409} = {19A819B3-1675-4609-B8A5-3B31880CFFE9}
 		{DFEBB3D6-766B-4D4B-B51D-38204DC1576E} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}

@@ -5,8 +5,7 @@ using System.IO;
 namespace RulesLibrary.Classes
 {
     /// <summary>
-    /// Provides rules for disallowing selection of an existing file along with
-    /// ensuring a description has been entered for the file.
+    /// Provides rules for disallowing selection of an existing file along with ensuring a description has been entered for the file.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class ExistingFileNameAttribute : ValidationAttribute

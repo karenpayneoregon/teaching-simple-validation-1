@@ -14,6 +14,7 @@ public void InvalidCustomerNoFirstOrLastNameTest()
     // assert
     Check.That(messages).ContainsExactly(builder.ToString());
 }
+
 [TestMethod]
 [TestTraits(Trait.AnnotationAttribute)]
 public void ValidCustomerTest()
