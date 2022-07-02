@@ -17,7 +17,7 @@ namespace ValidatingFormProject.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} is required"), DataType(DataType.Text)]
-        [MaxLength(12, ErrorMessage = "The {0} can not have more than {1} characters")]
+        [StringLength(12,MinimumLength = 3,  ErrorMessage = "{0} {2} min {1} max and not empty")]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
 

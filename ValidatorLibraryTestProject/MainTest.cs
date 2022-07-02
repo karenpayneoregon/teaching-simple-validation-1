@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
+using ValidatorLibrary.Classes;
 using ValidatorLibraryTestProject.Base;
 using ValidatorLibraryTestProject.Models;
 using static ValidatorLibrary.Classes.ValidationHelper;
@@ -21,12 +23,15 @@ namespace ValidatorLibraryTestProject
             builder.AppendLine("First name is required");
             builder.AppendLine("Last name is required");
             Customer customer = new();
+
             // act
-            var (success, messages) = IsValidEntity(customer);
+            var ( _  , messages) = IsValidEntity(customer);
 
             // assert
             Check.That(messages).ContainsExactly(builder.ToString());
+
         }
+
         [TestMethod]
         [TestTraits(Trait.AnnotationAttribute)]
         public void ValidCustomerTest()
@@ -47,11 +52,10 @@ namespace ValidatorLibraryTestProject
         public void InvalidReaderSettingTest()
         {
             // arrange
-            ReaderSetting readerSetting = new();
+            ReaderSetting readerSetting = new() { RfidAddress = "abcd" };
 
             // act
             var (success, messages) = IsValidEntity(readerSetting);
-
             // assert
             Check.That(success).IsFalse();
         }
@@ -68,6 +72,27 @@ namespace ValidatorLibraryTestProject
             // assert
             Check.That(success).IsTrue();
         }
+
+        [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public void ReaderSettingsRaw()
+        {
+            ReaderSetting readerSetting = new() { RfidAddress = "abcd" };
+            EntityValidator<ReaderSetting> validator = new EntityValidator<ReaderSetting>();
+            EntityValidationResult result = validator.Validate(readerSetting);
+            Assert.IsFalse(result.IsValid);
+
+            if (result.IsValid)
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                result.Errors.ToList().ForEach(x => Console.WriteLine(x.ErrorMessage));
+            }
+           
+        }
+
         #endregion
     }
 }

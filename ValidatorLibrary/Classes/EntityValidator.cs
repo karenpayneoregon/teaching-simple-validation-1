@@ -21,7 +21,6 @@ namespace ValidatorLibrary.Classes
             Validator.TryValidateObject(entity, vc, validationResults, true);
 
             return new EntityValidationResult(validationResults);
-
         }
     }
 }

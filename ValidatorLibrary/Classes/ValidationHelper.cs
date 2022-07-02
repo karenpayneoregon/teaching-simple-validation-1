@@ -15,7 +15,7 @@ namespace ValidatorLibrary.Classes
         /// <param name="entity">instance of model</param>
         /// <returns><see cref="EntityValidationResult"/> for <typeparam name="T">model type</typeparam></returns>
         public static EntityValidationResult ValidateEntity<T>(T entity) where T : class 
-            => (new EntityValidator<T>()).Validate(entity);
+            => new EntityValidator<T>().Validate(entity);
 
         /// <summary>
         /// Validate entity
