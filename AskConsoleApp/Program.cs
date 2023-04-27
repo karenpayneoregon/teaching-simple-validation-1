@@ -8,6 +8,7 @@ using Spectre.Console;
 using Spectre.Console.Rendering;
 using static System.Globalization.DateTimeFormatInfo;
 using static System.DateTime;
+#pragma warning disable CS8618
 
 
 namespace AskConsoleApp
@@ -58,13 +59,13 @@ namespace AskConsoleApp
             Console.WriteLine("What is your name?");
 
             Console.Write("Type your first name: ");
-            string firstName = Console.ReadLine();
+            string firstName = Console.ReadLine()!;
 
             Console.Write("Type your last name: ");
-            string lastName = Console.ReadLine();
+            string lastName = Console.ReadLine()!;
 
             Console.Write("Type your age: ");
-            string ageValue = Console.ReadLine();
+            string ageValue = Console.ReadLine()!;
 
             if (string.IsNullOrWhiteSpace(lastName))
             {

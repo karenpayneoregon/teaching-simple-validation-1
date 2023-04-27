@@ -1,36 +1,33 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace BaseDataValidatorLibrary.CommonRules
+namespace BaseDataValidatorLibrary.CommonRules;
+
+/// <summary>
+/// Provides custom rule for phone number rather than using stock [Phone] class
+/// </summary>
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class CheckPhoneValidationAttribute : ValidationAttribute 
 {
     /// <summary>
-    /// Provides custom rule for phone number rather than using stock [Phone] class
+    ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class CheckPhoneValidationAttribute : ValidationAttribute 
+    public override bool IsValid(object sender)
     {
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        public override bool IsValid(object sender)
+        // local function
+        static bool IsDigitsOnly(string value)
         {
-            // local function
-            static bool IsDigitsOnly(string value)
-            {
-                return value.All(character => character is >= '0' and <= '9');
-            }
-
-            if (sender == null)
-            {
-                return false;
-            }
-
-            string convertedValue = sender.ToString();
-
-            return !string.IsNullOrWhiteSpace(convertedValue) && 
-                   IsDigitsOnly(convertedValue) && 
-                   convertedValue.Length <= 10;
+            return value.All(character => character is >= '0' and <= '9');
         }
+
+        if (sender == null)
+        {
+            return false;
+        }
+
+        string convertedValue = sender.ToString();
+
+        return !string.IsNullOrWhiteSpace(convertedValue) && 
+               IsDigitsOnly(convertedValue) && 
+               convertedValue.Length <= 10;
     }
 }

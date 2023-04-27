@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+#pragma warning disable CS8618
 
 namespace RulesLibrary.Classes
 {

@@ -1,18 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 
-namespace BaseDataValidatorLibrary.LanguageExtensions
+namespace BaseDataValidatorLibrary.LanguageExtensions;
+
+public static class ObjectExtensions
 {
-    public static class ObjectExtensions
+    public static bool IsList(this object sender)
     {
-        public static bool IsList(this object sender)
-        {
             
-            if (sender == null) return false;
+        if (sender == null) return false;
 
-            return sender is IList &&
-                   sender.GetType().IsGenericType &&
-                   sender.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
-        }
+        return sender is IList &&
+               sender.GetType().IsGenericType &&
+               sender.GetType().GetGenericTypeDefinition().IsAssignableFrom(typeof(List<>));
     }
 }

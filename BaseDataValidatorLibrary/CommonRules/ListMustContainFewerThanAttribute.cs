@@ -1,51 +1,48 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using BaseDataValidatorLibrary.LanguageExtensions;
 
-namespace BaseDataValidatorLibrary.CommonRules
+namespace BaseDataValidatorLibrary.CommonRules;
+
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class ListMustContainFewerThanAttribute : ValidationAttribute
 {
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ListMustContainFewerThanAttribute : ValidationAttribute
+    public ListMustContainFewerThanAttribute(int maximum)
     {
-        public ListMustContainFewerThanAttribute(int maximum)
+        Maximum = maximum;
+    }
+
+    public int Maximum { get; set; }
+
+    public override string FormatErrorMessage(string name)
+    {
+        if (ErrorMessage == null && ErrorMessageResourceName == null)
         {
-            Maximum = maximum;
+            ErrorMessage = "is unacceptable";
         }
 
-        public int Maximum { get; set; }
+        return $"{name.SplitCamelCase()} count must be less than {Maximum}";
 
-        public override string FormatErrorMessage(string name)
+    }
+    /// <summary>
+    ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+    /// </summary>
+    public override bool IsValid(object sender)
+    {
+        if (sender is null)
         {
-            if (ErrorMessage == null && ErrorMessageResourceName == null)
-            {
-                ErrorMessage = "is unacceptable";
-            }
-
-            return $"{name.SplitCamelCase()} count must be less than {Maximum}";
-
+            return false;
         }
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        public override bool IsValid(object sender)
+
+        if (sender.IsList())
         {
-            if (sender is null)
-            {
-                return false;
-            }
-
-            if (sender.IsList())
-            {
-                var result = ((IEnumerable)sender).Cast<object>().ToList();
-                return result.Count < 5;
-            }
-            else
-            {
-                return false;
-            }
-
+            var result = ((IEnumerable)sender).Cast<object>().ToList();
+            return result.Count < 5;
         }
+        else
+        {
+            return false;
+        }
+
     }
 }

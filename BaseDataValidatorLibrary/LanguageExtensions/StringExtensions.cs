@@ -9,10 +9,11 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
         /// </summary>
         /// <param name="sender">String to work against</param>
         /// <returns>String with spaces between upper-case letters</returns>
-        public static string SplitCamelCase(this string sender) 
-            => Regex.Replace(Regex.Replace(sender, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
+        public static string SplitCamelCase(this string sender) =>
+            string.Join(" ", Regex.Matches(sender, @"([A-Z][a-z]+)")
+                .Select(m => m.Value));
 
-        private static readonly Regex Reg = new Regex("([a-z,0-9](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", RegexOptions.Compiled);
+        private static readonly Regex Reg = new("([a-z,0-9](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", RegexOptions.Compiled);
 
         /// <summary>
         /// This splits up a string based on capital letters
