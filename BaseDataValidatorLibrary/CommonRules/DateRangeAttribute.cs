@@ -4,22 +4,21 @@ using BaseDataValidatorLibrary.LanguageExtensions;
 
 namespace BaseDataValidatorLibrary.CommonRules
 {
-
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YearRangeAttribute : ValidationAttribute
+    public class DateRangeAttribute : ValidationAttribute
     {
-        public YearRangeAttribute(int maximumYear)
+        public DateRangeAttribute(int maximumYear)
         {
-            MaximumYear = maximumYear;
+            MaximumDate = maximumYear;
         }
         /// <summary>
         /// Maximum permitted year
         /// </summary>
-        public int MaximumYear { get; }
+        public int MaximumDate { get; }
         /// <summary>
         /// Minimum permitted year
         /// </summary>
-        public int MinimumYear { get; set; }
+        public int MinimumDate { get; set; }
         public override string FormatErrorMessage(string name)
         {
             if (ErrorMessage is null && ErrorMessageResourceName is null)
@@ -27,16 +26,11 @@ namespace BaseDataValidatorLibrary.CommonRules
                 ErrorMessage = "'Year {0}' and/or year '{1}' are invalid";
             }
 
-            return $"{name} year must be between {MinimumYear} and {MaximumYear}";
+            return $"{name} year must be between {MinimumDate} and {MaximumDate}";
 
         }
 
         public override bool IsValid(object sender)
-            => ((DateTime)sender).Year.Between(MinimumYear, MaximumYear);
-
-
+            => ((DateTime)sender).Year.Between(MinimumDate, MaximumDate);
     }
-
-
 }
-
