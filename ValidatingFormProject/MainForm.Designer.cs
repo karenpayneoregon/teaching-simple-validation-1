@@ -29,6 +29,7 @@ namespace ValidatingFormProject
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CountryComboBox = new System.Windows.Forms.ComboBox();
             this.ValidateButton = new System.Windows.Forms.Button();
@@ -54,8 +55,10 @@ namespace ValidatingFormProject
             this.NotesGroupBox = new System.Windows.Forms.GroupBox();
             this.SolutionNameLabel = new System.Windows.Forms.Label();
             this.RestartButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.CountryGroupBox.SuspendLayout();
             this.NotesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CountryComboBox
@@ -64,20 +67,23 @@ namespace ValidatingFormProject
             this.CountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CountryComboBox.FormattingEnabled = true;
             this.CountryComboBox.IntegralHeight = false;
-            this.CountryComboBox.ItemHeight = 15;
-            this.CountryComboBox.Location = new System.Drawing.Point(20, 22);
+            this.CountryComboBox.ItemHeight = 20;
+            this.CountryComboBox.Location = new System.Drawing.Point(23, 29);
+            this.CountryComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CountryComboBox.Name = "CountryComboBox";
-            this.CountryComboBox.Size = new System.Drawing.Size(189, 23);
+            this.CountryComboBox.Size = new System.Drawing.Size(215, 28);
             this.CountryComboBox.TabIndex = 0;
+            this.CountryComboBox.Tag = "CountryName";
             // 
             // ValidateButton
             // 
             this.ValidateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ValidateButton.Image = global::ValidatingFormProject.Properties.Resources.ValidationRule_16x;
             this.ValidateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ValidateButton.Location = new System.Drawing.Point(428, 349);
+            this.ValidateButton.Location = new System.Drawing.Point(489, 465);
+            this.ValidateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ValidateButton.Name = "ValidateButton";
-            this.ValidateButton.Size = new System.Drawing.Size(73, 36);
+            this.ValidateButton.Size = new System.Drawing.Size(83, 48);
             this.ValidateButton.TabIndex = 1;
             this.ValidateButton.Text = "Validate";
             this.ValidateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -87,9 +93,11 @@ namespace ValidatingFormProject
             // CountryGroupBox
             // 
             this.CountryGroupBox.Controls.Add(this.CountryComboBox);
-            this.CountryGroupBox.Location = new System.Drawing.Point(269, 81);
+            this.CountryGroupBox.Location = new System.Drawing.Point(307, 108);
+            this.CountryGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CountryGroupBox.Name = "CountryGroupBox";
-            this.CountryGroupBox.Size = new System.Drawing.Size(226, 75);
+            this.CountryGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CountryGroupBox.Size = new System.Drawing.Size(258, 100);
             this.CountryGroupBox.TabIndex = 2;
             this.CountryGroupBox.TabStop = false;
             this.CountryGroupBox.Text = "C&ountry";
@@ -97,81 +105,90 @@ namespace ValidatingFormProject
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(16, 13);
+            this.FirstNameLabel.Location = new System.Drawing.Point(18, 17);
             this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(62, 15);
+            this.FirstNameLabel.Size = new System.Drawing.Size(77, 20);
             this.FirstNameLabel.TabIndex = 3;
             this.FirstNameLabel.Text = "&First name";
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(20, 37);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(23, 49);
+            this.FirstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FirstNameTextBox.MaxLength = 10;
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.PlaceholderText = "place first name here";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(164, 23);
+            this.FirstNameTextBox.Size = new System.Drawing.Size(187, 27);
             this.FirstNameTextBox.TabIndex = 4;
+            this.FirstNameTextBox.Tag = "FirstName";
             this.FirstNameTextBox.Text = "Karen";
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(20, 93);
+            this.LastNameTextBox.Location = new System.Drawing.Point(23, 124);
+            this.LastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.PlaceholderText = "place last name here";
-            this.LastNameTextBox.Size = new System.Drawing.Size(164, 23);
+            this.LastNameTextBox.Size = new System.Drawing.Size(187, 27);
             this.LastNameTextBox.TabIndex = 6;
+            this.LastNameTextBox.Tag = "LastName";
             this.LastNameTextBox.Text = "Payne";
             // 
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(16, 75);
+            this.LastNameLabel.Location = new System.Drawing.Point(18, 100);
             this.LastNameLabel.Name = "LastNameLabel";
-            this.LastNameLabel.Size = new System.Drawing.Size(61, 15);
+            this.LastNameLabel.Size = new System.Drawing.Size(76, 20);
             this.LastNameLabel.TabIndex = 5;
             this.LastNameLabel.Text = "&Last name";
             // 
             // PinLabel
             // 
             this.PinLabel.AutoSize = true;
-            this.PinLabel.Location = new System.Drawing.Point(250, 13);
+            this.PinLabel.Location = new System.Drawing.Point(286, 17);
             this.PinLabel.Name = "PinLabel";
-            this.PinLabel.Size = new System.Drawing.Size(24, 15);
+            this.PinLabel.Size = new System.Drawing.Size(29, 20);
             this.PinLabel.TabIndex = 7;
             this.PinLabel.Text = "Pi&n";
             // 
             // PinTextBox
             // 
-            this.PinTextBox.Location = new System.Drawing.Point(280, 13);
+            this.PinTextBox.Location = new System.Drawing.Point(320, 17);
+            this.PinTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PinTextBox.MaxLength = 4;
             this.PinTextBox.Name = "PinTextBox";
-            this.PinTextBox.Size = new System.Drawing.Size(55, 23);
+            this.PinTextBox.Size = new System.Drawing.Size(62, 27);
             this.PinTextBox.TabIndex = 8;
+            this.PinTextBox.Tag = "Pin";
             this.PinTextBox.Text = "1234";
             // 
             // SocailLabel
             // 
             this.SocailLabel.AutoSize = true;
-            this.SocailLabel.Location = new System.Drawing.Point(246, 45);
+            this.SocailLabel.Location = new System.Drawing.Point(281, 60);
             this.SocailLabel.Name = "SocailLabel";
-            this.SocailLabel.Size = new System.Drawing.Size(28, 15);
+            this.SocailLabel.Size = new System.Drawing.Size(36, 20);
             this.SocailLabel.TabIndex = 9;
             this.SocailLabel.Text = "&SSN";
             // 
             // SocialSecurityNumberTextBox
             // 
-            this.SocialSecurityNumberTextBox.Location = new System.Drawing.Point(280, 45);
+            this.SocialSecurityNumberTextBox.Location = new System.Drawing.Point(320, 60);
+            this.SocialSecurityNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SocialSecurityNumberTextBox.Name = "SocialSecurityNumberTextBox";
             this.SocialSecurityNumberTextBox.PlaceholderText = "000-00-0000";
-            this.SocialSecurityNumberTextBox.Size = new System.Drawing.Size(100, 23);
+            this.SocialSecurityNumberTextBox.Size = new System.Drawing.Size(114, 27);
             this.SocialSecurityNumberTextBox.TabIndex = 10;
+            this.SocialSecurityNumberTextBox.Tag = "SocialSecurity";
             // 
             // ShowHidePasswordCheckBox
             // 
             this.ShowHidePasswordCheckBox.AutoSize = true;
-            this.ShowHidePasswordCheckBox.Location = new System.Drawing.Point(386, 45);
+            this.ShowHidePasswordCheckBox.Location = new System.Drawing.Point(441, 60);
+            this.ShowHidePasswordCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ShowHidePasswordCheckBox.Name = "ShowHidePasswordCheckBox";
-            this.ShowHidePasswordCheckBox.Size = new System.Drawing.Size(109, 19);
+            this.ShowHidePasswordCheckBox.Size = new System.Drawing.Size(136, 24);
             this.ShowHidePasswordCheckBox.TabIndex = 11;
             this.ShowHidePasswordCheckBox.Text = "Show/Hide SSN";
             this.ShowHidePasswordCheckBox.UseVisualStyleBackColor = true;
@@ -180,51 +197,55 @@ namespace ValidatingFormProject
             // PostalLabel
             // 
             this.PostalLabel.AutoSize = true;
-            this.PostalLabel.Location = new System.Drawing.Point(16, 183);
+            this.PostalLabel.Location = new System.Drawing.Point(18, 244);
             this.PostalLabel.Name = "PostalLabel";
-            this.PostalLabel.Size = new System.Drawing.Size(68, 15);
+            this.PostalLabel.Size = new System.Drawing.Size(85, 20);
             this.PostalLabel.TabIndex = 12;
             this.PostalLabel.Text = "&Postal code";
             // 
             // PostalCodeTextBox
             // 
-            this.PostalCodeTextBox.Location = new System.Drawing.Point(20, 201);
+            this.PostalCodeTextBox.Location = new System.Drawing.Point(23, 268);
+            this.PostalCodeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PostalCodeTextBox.Name = "PostalCodeTextBox";
-            this.PostalCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.PostalCodeTextBox.Size = new System.Drawing.Size(114, 27);
             this.PostalCodeTextBox.TabIndex = 13;
+            this.PostalCodeTextBox.Tag = "PostalCode";
             this.PostalCodeTextBox.Text = "97209";
             // 
             // BirthDateLabel
             // 
             this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(16, 132);
+            this.BirthDateLabel.Location = new System.Drawing.Point(18, 176);
             this.BirthDateLabel.Name = "BirthDateLabel";
-            this.BirthDateLabel.Size = new System.Drawing.Size(58, 15);
+            this.BirthDateLabel.Size = new System.Drawing.Size(74, 20);
             this.BirthDateLabel.TabIndex = 17;
             this.BirthDateLabel.Text = "Birth &date";
             // 
             // CreditCardLabel
             // 
             this.CreditCardLabel.AutoSize = true;
-            this.CreditCardLabel.Location = new System.Drawing.Point(16, 239);
+            this.CreditCardLabel.Location = new System.Drawing.Point(18, 319);
             this.CreditCardLabel.Name = "CreditCardLabel";
-            this.CreditCardLabel.Size = new System.Drawing.Size(110, 15);
+            this.CreditCardLabel.Size = new System.Drawing.Size(137, 20);
             this.CreditCardLabel.TabIndex = 18;
             this.CreditCardLabel.Text = "&Credit card number";
             // 
             // CreditCardTextBox
             // 
-            this.CreditCardTextBox.Location = new System.Drawing.Point(20, 257);
+            this.CreditCardTextBox.Location = new System.Drawing.Point(23, 343);
+            this.CreditCardTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreditCardTextBox.Name = "CreditCardTextBox";
-            this.CreditCardTextBox.Size = new System.Drawing.Size(171, 23);
+            this.CreditCardTextBox.Size = new System.Drawing.Size(195, 27);
             this.CreditCardTextBox.TabIndex = 19;
+            this.CreditCardTextBox.Tag = "CreditCardNumber";
             // 
             // AppointmentDateLabel
             // 
             this.AppointmentDateLabel.AutoSize = true;
-            this.AppointmentDateLabel.Location = new System.Drawing.Point(20, 295);
+            this.AppointmentDateLabel.Location = new System.Drawing.Point(23, 393);
             this.AppointmentDateLabel.Name = "AppointmentDateLabel";
-            this.AppointmentDateLabel.Size = new System.Drawing.Size(97, 15);
+            this.AppointmentDateLabel.Size = new System.Drawing.Size(122, 20);
             this.AppointmentDateLabel.TabIndex = 20;
             this.AppointmentDateLabel.Text = "Appintment date";
             // 
@@ -232,22 +253,26 @@ namespace ValidatingFormProject
             // 
             this.AppointmentDateTimePicker1.CustomFormat = "";
             this.AppointmentDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.AppointmentDateTimePicker1.Location = new System.Drawing.Point(20, 322);
+            this.AppointmentDateTimePicker1.Location = new System.Drawing.Point(23, 429);
+            this.AppointmentDateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AppointmentDateTimePicker1.Name = "AppointmentDateTimePicker1";
             this.AppointmentDateTimePicker1.ShowUpDown = true;
-            this.AppointmentDateTimePicker1.Size = new System.Drawing.Size(164, 23);
+            this.AppointmentDateTimePicker1.Size = new System.Drawing.Size(187, 27);
             this.AppointmentDateTimePicker1.TabIndex = 21;
+            this.AppointmentDateTimePicker1.Tag = "AppointmentDate";
             this.AppointmentDateTimePicker1.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
             // 
             // BirthDatePicker
             // 
             this.BirthDatePicker.CustomFormat = "";
             this.BirthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BirthDatePicker.Location = new System.Drawing.Point(20, 150);
+            this.BirthDatePicker.Location = new System.Drawing.Point(23, 200);
+            this.BirthDatePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BirthDatePicker.Name = "BirthDatePicker";
             this.BirthDatePicker.ShowUpDown = true;
-            this.BirthDatePicker.Size = new System.Drawing.Size(164, 23);
+            this.BirthDatePicker.Size = new System.Drawing.Size(187, 27);
             this.BirthDatePicker.TabIndex = 23;
+            this.BirthDatePicker.Tag = "BirthDate";
             this.BirthDatePicker.Value = new System.DateTime(2022, 5, 7, 8, 54, 53, 185);
             // 
             // NotesComboBox
@@ -263,17 +288,21 @@ namespace ValidatingFormProject
             "5",
             "6",
             "7"});
-            this.NotesComboBox.Location = new System.Drawing.Point(8, 22);
+            this.NotesComboBox.Location = new System.Drawing.Point(9, 29);
+            this.NotesComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NotesComboBox.Name = "NotesComboBox";
-            this.NotesComboBox.Size = new System.Drawing.Size(121, 23);
+            this.NotesComboBox.Size = new System.Drawing.Size(138, 28);
             this.NotesComboBox.TabIndex = 24;
+            this.NotesComboBox.Tag = "NotesList";
             // 
             // NotesGroupBox
             // 
             this.NotesGroupBox.Controls.Add(this.NotesComboBox);
-            this.NotesGroupBox.Location = new System.Drawing.Point(272, 162);
+            this.NotesGroupBox.Location = new System.Drawing.Point(311, 216);
+            this.NotesGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NotesGroupBox.Name = "NotesGroupBox";
-            this.NotesGroupBox.Size = new System.Drawing.Size(223, 62);
+            this.NotesGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.NotesGroupBox.Size = new System.Drawing.Size(255, 83);
             this.NotesGroupBox.TabIndex = 25;
             this.NotesGroupBox.TabStop = false;
             this.NotesGroupBox.Text = "Notes count";
@@ -281,9 +310,9 @@ namespace ValidatingFormProject
             // SolutionNameLabel
             // 
             this.SolutionNameLabel.AutoSize = true;
-            this.SolutionNameLabel.Location = new System.Drawing.Point(16, 368);
+            this.SolutionNameLabel.Location = new System.Drawing.Point(18, 491);
             this.SolutionNameLabel.Name = "SolutionNameLabel";
-            this.SolutionNameLabel.Size = new System.Drawing.Size(84, 15);
+            this.SolutionNameLabel.Size = new System.Drawing.Size(105, 20);
             this.SolutionNameLabel.TabIndex = 26;
             this.SolutionNameLabel.Text = "Solution name";
             // 
@@ -291,20 +320,26 @@ namespace ValidatingFormProject
             // 
             this.RestartButton.Image = global::ValidatingFormProject.Properties.Resources.Exit_16x;
             this.RestartButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RestartButton.Location = new System.Drawing.Point(328, 349);
+            this.RestartButton.Location = new System.Drawing.Point(375, 465);
+            this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RestartButton.Name = "RestartButton";
-            this.RestartButton.Size = new System.Drawing.Size(73, 36);
+            this.RestartButton.Size = new System.Drawing.Size(83, 48);
             this.RestartButton.TabIndex = 27;
             this.RestartButton.Text = "Restart";
             this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RestartButton.UseVisualStyleBackColor = true;
             this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 392);
+            this.ClientSize = new System.Drawing.Size(586, 523);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.SolutionNameLabel);
             this.Controls.Add(this.NotesGroupBox);
@@ -328,6 +363,7 @@ namespace ValidatingFormProject
             this.Controls.Add(this.CountryGroupBox);
             this.Controls.Add(this.ValidateButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -335,6 +371,7 @@ namespace ValidatingFormProject
             this.Text = "Validation code sample";
             this.CountryGroupBox.ResumeLayout(false);
             this.NotesGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,6 +403,7 @@ namespace ValidatingFormProject
         private System.Windows.Forms.GroupBox NotesGroupBox;
         private System.Windows.Forms.Label SolutionNameLabel;
         private System.Windows.Forms.Button RestartButton;
+        private ErrorProvider errorProvider1;
     }
 }
 

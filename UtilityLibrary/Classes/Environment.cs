@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace UtilityLibrary.Classes;
 
-namespace UtilityLibrary.Classes
+public enum Environment
 {
-    public enum Environment
-    {
-        Development,
-        Staging,
-        Production
-    }
+    Development,
+    Staging,
+    Production
 }

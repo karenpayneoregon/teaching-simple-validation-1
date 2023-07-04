@@ -35,6 +35,7 @@ namespace ValidatingFormProject.Models
         public decimal CreditLimit { get; set; }
 
         [CreditCard]
+        [Required]
         [Display(Name = "Credit card number")]
         public string CreditCardNumber { get; set; }
 

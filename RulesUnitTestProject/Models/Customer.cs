@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using BaseDataValidatorLibrary.CommonRules;
+#pragma warning disable CS8618
+#pragma warning disable CS8612
 
 namespace RulesUnitTestProject.Models
 {

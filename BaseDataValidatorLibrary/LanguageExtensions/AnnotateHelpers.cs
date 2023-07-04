@@ -1,82 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Classes;
 using BaseDataValidatorLibrary.CommonRules;
 
 // ReSharper disable once CheckNamespace
-namespace BaseDataValidatorLibrary.Helpers
+namespace BaseDataValidatorLibrary.Helpers;
+
+public static partial class Model
 {
-    public static partial class Model
+    /// <summary>
+    /// Obtain property name and ErrorMessage for properties with a <see cref="RequiredAttribute"/>
+    /// </summary>
+    /// <typeparam name="T">Type to get messages</typeparam>
+    /// <param name="sender">instantiated instance of T</param>
+    /// <returns>Dictionary of names and error messages</returns>
+    public static Dictionary<string, string> GetRequiredErrorMessages<T>(T sender)
     {
-        /// <summary>
-        /// Obtain property name and ErrorMessage for properties with a <see cref="RequiredAttribute"/>
-        /// </summary>
-        /// <typeparam name="T">Type to get messages</typeparam>
-        /// <param name="sender">instantiated instance of T</param>
-        /// <returns>Dictionary of names and error messages</returns>
-        public static Dictionary<string, string> GetRequiredErrorMessages<T>(T sender)
+        Dictionary<string, string> dictionary = new();
+
+        var type = typeof(T);
+        PropertyInfo[] propertyInfo = type.GetProperties();
+
+        foreach (PropertyInfo prop in propertyInfo)
         {
-            Dictionary<string, string> dictionary = new();
+            object[] attributes = prop.GetCustomAttributes(true);
 
-            var type = typeof(T);
-            PropertyInfo[] propertyInfo = type.GetProperties();
-
-            foreach (PropertyInfo prop in propertyInfo)
+            foreach (var attribute in attributes)
             {
-                object[] attributes = prop.GetCustomAttributes(true);
+                if (attribute is not RequiredAttribute currentAttribute) continue;
+                string propName = prop.Name;
+                string auth = currentAttribute.ErrorMessage;
 
-                foreach (var attribute in attributes)
-                {
-                    if (attribute is not RequiredAttribute currentAttribute) continue;
-                    string propName = prop.Name;
-                    string auth = currentAttribute.ErrorMessage;
-
-                    dictionary.Add(propName, auth);
-                }
+                dictionary.Add(propName, auth);
             }
-
-            return dictionary;
         }
 
-        /// <summary>
-        /// Provides access to annotation details for <see cref="ValidateYearsAttribute"/>
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="sender"></param>
-        /// <returns></returns>
-        public static List<ValidateYearsDetails> GetValidateYearsErrorMessages<T>(T sender)
+        return dictionary;
+    }
+
+    /// <summary>
+    /// Provides access to annotation details for <see cref="ValidateYearsAttribute"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="sender"></param>
+    /// <returns></returns>
+    public static List<ValidateYearsDetails> GetValidateYearsErrorMessages<T>(T sender)
+    {
+
+        List<ValidateYearsDetails> list = new();
+
+        var type = typeof(T);
+        PropertyInfo[] propertyInfo = type.GetProperties();
+
+        foreach (PropertyInfo prop in propertyInfo)
         {
+            object[] attributes = prop.GetCustomAttributes(true);
 
-            List<ValidateYearsDetails> list = new();
-
-            var type = typeof(T);
-            PropertyInfo[] propertyInfo = type.GetProperties();
-
-            foreach (PropertyInfo prop in propertyInfo)
+            foreach (var attribute in attributes)
             {
-                object[] attributes = prop.GetCustomAttributes(true);
+                if (attribute is not ValidateYearsAttribute currentAttribute) continue;
 
-                foreach (var attribute in attributes)
+                list.Add(new ValidateYearsDetails()
                 {
-                    if (attribute is not ValidateYearsAttribute currentAttribute) continue;
+                    PropertyName = prop.Name,
+                    ErrorMessage = currentAttribute.ErrorMessage,
+                    Min = currentAttribute._minValue,
+                    Max = currentAttribute._maxValue
+                });
 
-                    list.Add(new ValidateYearsDetails()
-                    {
-                        PropertyName = prop.Name,
-                        ErrorMessage = currentAttribute.ErrorMessage,
-                        Min = currentAttribute._minValue,
-                        Max = currentAttribute._maxValue
-                    });
-
-                }
             }
-
-            return list;
         }
+
+        return list;
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
 using DirectoryHelpersLibrary.Classes;
 using ValidatingFormProject.Classes;
 using ValidatingFormProject.Extensions;
 using WindowsFormsLibrary.Classes;
+using WindowsFormsLibrary.LanguageExtensions;
 using static BaseDataValidatorLibrary.Helpers.ValidationHelper;
 using Customer = ValidatingFormProject.Models.Customer;
 
@@ -21,6 +13,7 @@ namespace ValidatingFormProject
     {
 
         private readonly BindingSource _customerBindingSource = new();
+        private Dictionary<string, Control> _controls = new Dictionary<string, Control>();
         public MainForm()
         {
             InitializeComponent();
@@ -30,6 +23,12 @@ namespace ValidatingFormProject
             SolutionNameLabel.Text = Folders.CurrentSolutionName();
 
             Move += OnTheMove;
+
+            var items = this.Descendants<Control>().Where(x => x.Tag is not null);
+            foreach (var item in items)
+            {
+                _controls.Add(item.Tag!.ToString()!, item);
+            }
         }
 
         private void OnTheMove(object sender, EventArgs e)
@@ -106,7 +105,6 @@ namespace ValidatingFormProject
             var childForm1 = new SideForm() { Top = Top, Left = (Left + Width), Tag = "Right" };
             childForm1.Show();
             MoveChildForm();
-
         }
 
         private void ShowHidePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -114,6 +112,13 @@ namespace ValidatingFormProject
             SocialSecurityNumberTextBox.ToggleShow(ShowHidePasswordCheckBox.Checked);
         }
 
+        /// <summary>
+        /// There are two methods for indicating invalid properties
+        /// * Show in a child window - commented out
+        /// * Show using an error provider
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ValidateButton_Click(object sender, EventArgs e)
         {
             if (_customerBindingSource.Current is null)
@@ -122,20 +127,37 @@ namespace ValidatingFormProject
             }
             else
             {
+                foreach (var control in _controls)
+                {
+                    errorProvider1.SetError(control.Value,"");
+                }
                 var customer = _customerBindingSource.Customer();
 
                 customer.NotesList = Operations.CreateNotes(Convert.ToInt32(NotesComboBox.Text));
-                var (success, errorMessages) = IsValidEntity(customer);
+                //var (success, errorMessages) = IsValidEntity(customer);
 
+                //if (!success)
+                //{
+                //    FunStuff.Shake(this);
+                //    SetResultTextInChildWindow(errorMessages);
+                //}
+                //else
+                //{
+                //    SetResultTextInChildWindow();
+                //    Dialogs.Information(this, "Valid");
+                //}
+
+                var (success, container) = IsValidEntityList(customer);
                 if (!success)
                 {
                     FunStuff.Shake(this);
-                    SetResultTextInChildWindow(errorMessages);
-                }
-                else
-                {
-                    SetResultTextInChildWindow();
-                    Dialogs.Information(this, "Valid");
+                    foreach (var item in container)
+                    {
+                        if (_controls.TryGetValue(item.Name, out var control))
+                        {
+                            errorProvider1.SetError(control, item.Description);
+                        }
+                    }
                 }
             }
 

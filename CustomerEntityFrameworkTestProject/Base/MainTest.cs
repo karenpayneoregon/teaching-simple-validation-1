@@ -18,10 +18,7 @@ namespace CustomerEntityFrameworkTestProject
         [TestInitialize]
         public void Initialization()
         {
-            if (TestContext.TestName == nameof(CreateDatabaseTest))
-            {
-                // TODO
-            }
+
         }
 
         /// <summary>
@@ -30,10 +27,7 @@ namespace CustomerEntityFrameworkTestProject
         [TestCleanup]
         public void TestCleanup()
         {
-            if (TestContext.TestName == nameof(CreateDatabaseTest))
-            {
-                // TODO
-            }
+
         }
         /// <summary>
         /// Perform any initialize for the class

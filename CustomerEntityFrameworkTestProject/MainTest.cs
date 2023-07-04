@@ -1,40 +1,21 @@
 using EntityFrameworkCoreLibrary.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 using BaseDataValidatorLibrary.Classes;
 using BaseDataValidatorLibrary.CommonRules;
 using BaseDataValidatorLibrary.Helpers;
 using CustomerEntityFrameworkTestProject.Base;
-using CustomerEntityFrameworkTestProject.Classes;
-using EntityFrameworkCoreLibrary.Classes;
 using EntityFrameworkCoreLibrary.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
-using EntityFrameworkCoreLibrary.Models;
 
 namespace CustomerEntityFrameworkTestProject
 {
     [TestClass]
     public partial class MainTest : TestBase
     {
-        /// <summary>
-        /// Comment out ignore, run to create/recreate the database
-        /// </summary>
-        /// <returns></returns>
-        [TestMethod]
-        [Ignore]
-        [TestTraits(Trait.EntityFrameworkValidationAnnotations)]
-        public async Task CreateDatabaseTest()
-        {
-            // arrange
-            var (success, exception) = await CreateOperations.NewExampleDatabase();
-            Check.That(success).IsTrue();
-        }
-
+ 
         [TestMethod]
         [TestTraits(Trait.Tinkering)]
         public void GetDisplayName()
