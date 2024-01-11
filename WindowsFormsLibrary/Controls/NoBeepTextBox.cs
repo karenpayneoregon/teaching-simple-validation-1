@@ -3,7 +3,7 @@
 namespace WindowsFormsLibrary.Controls;
 
 /// <summary>
-/// TextBox with no beep when ENTER is pressed as is is limited usage.
+/// TextBox with no beep when ENTER is pressed
 /// </summary>
 public class NoBeepTextBox : TextBox
 {
@@ -29,6 +29,7 @@ public class NoBeepTextBox : TextBox
 
     [Category("Behavior"), Description("Identifier")]
     public int Id { get; set; }
+    
     [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
     public bool HasId => Id > -1;
 

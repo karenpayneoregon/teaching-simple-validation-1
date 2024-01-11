@@ -34,15 +34,16 @@ using RLC = RulesLibrary.Classes;
 ```sql
 USE NorthWind2020;
 DECLARE @TableName SYSNAME= 'Customers';
-SELECT COLUMN_NAME, 
-       DATA_TYPE, 
-       CHARACTER_MAXIMUM_LENGTH
+SELECT col.COLUMN_NAME, 
+       col.DATA_TYPE, 
+       col.CHARACTER_MAXIMUM_LENGTH
 FROM INFORMATION_SCHEMA.TABLES AS tbl
      INNER JOIN INFORMATION_SCHEMA.COLUMNS AS col ON col.TABLE_NAME = tbl.TABLE_NAME
      INNER JOIN sys.columns AS sc ON sc.object_id = OBJECT_ID(tbl.TABLE_SCHEMA + '.' + tbl.TABLE_NAME)
                                      AND sc.name = col.COLUMN_NAME
      LEFT JOIN sys.extended_properties prop ON prop.major_id = sc.object_id
                                                AND prop.minor_id = sc.column_id
-WHERE tbl.TABLE_NAME = @TableName
+WHERE tbl.TABLE_NAME = @TableName AND col.CHARACTER_MAXIMUM_LENGTH IS NOT NULL
+
 ORDER BY col.ORDINAL_POSITION;
 ```

@@ -64,8 +64,8 @@ public static partial class Model
                 {
                     PropertyName = prop.Name,
                     ErrorMessage = currentAttribute.ErrorMessage,
-                    Min = currentAttribute._minValue,
-                    Max = currentAttribute._maxValue
+                    Min = currentAttribute.MinValue,
+                    Max = currentAttribute.MaxValue
                 });
 
             }

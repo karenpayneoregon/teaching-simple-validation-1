@@ -40,6 +40,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnotationsTests", "Annotat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilityLibrary", "UtilityLibrary\UtilityLibrary.csproj", "{5AAF9F3E-8E4E-4157-8AF6-93BE9589B9BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects", "Console projects", "{E4B4E5FD-E851-4182-BF20-92406D59963A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomersAddressApp", "CustomersAddressApp\CustomersAddressApp.csproj", "{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +98,10 @@ Global
 		{5AAF9F3E-8E4E-4157-8AF6-93BE9589B9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AAF9F3E-8E4E-4157-8AF6-93BE9589B9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AAF9F3E-8E4E-4157-8AF6-93BE9589B9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +119,7 @@ Global
 		{CB1F9501-C022-402E-8827-FC5A65E23CDF} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
 		{51C222E4-ADCC-406C-BBA9-6CA8CF607772} = {618F0DC3-441F-4A52-BB33-B3595A068331}
 		{5AAF9F3E-8E4E-4157-8AF6-93BE9589B9BB} = {ED9AA996-E50F-435B-88A3-7D589BFE8E26}
+		{5AFF6F51-AD2F-43A1-B850-A0247C4ED4C1} = {E4B4E5FD-E851-4182-BF20-92406D59963A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13547EFA-0764-479E-8539-678419E9D4D1}

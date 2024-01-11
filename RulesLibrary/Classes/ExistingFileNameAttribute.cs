@@ -3,49 +3,48 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 #pragma warning disable CS8618
 
-namespace RulesLibrary.Classes
+namespace RulesLibrary.Classes;
+
+/// <summary>
+/// Provides rules for disallowing selection of an existing file along with ensuring a description has been entered for the file.
+/// </summary>
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class ExistingFileNameAttribute : ValidationAttribute
 {
     /// <summary>
-    /// Provides rules for disallowing selection of an existing file along with ensuring a description has been entered for the file.
+    /// Default file not found text
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ExistingFileNameAttribute : ValidationAttribute
+    private const string DefaultFileNotFoundMessage = 
+        "Sorry but there is already an file with this name please rename your file";
+
+    /// <summary>
+    /// Default text for description of file
+    /// </summary>
+    private const string DefaultErrorMessage = 
+        "Please enter a name for your file name";
+
+    /// <summary>
+    /// Text for file not found
+    /// </summary>
+    public string FileNotFoundMessage { get; set; }
+
+    /// <summary>
+    ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
+    /// </summary>
+    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
-        /// <summary>
-        /// Default file not found text
-        /// </summary>
-        private const string DefaultFileNotFoundMessage = 
-            "Sorry but there is already an file with this name please rename your file";
-
-        /// <summary>
-        /// Default text for description of file
-        /// </summary>
-        private const string DefaultErrorMessage = 
-            "Please enter a name for your file name";
-
-        /// <summary>
-        /// Text for file not found
-        /// </summary>
-        public string FileNotFoundMessage { get; set; }
-
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        if (value is not null)
         {
-            if (value is not null)
-            {
-                var result = File.Exists(value.ToString()) ? 
-                    new ValidationResult(FileNotFoundMessage ?? DefaultFileNotFoundMessage) : 
-                    ValidationResult.Success;
+            var result = File.Exists(value.ToString()) ? 
+                new ValidationResult(FileNotFoundMessage ?? DefaultFileNotFoundMessage) : 
+                ValidationResult.Success;
 
-                return result;
-            }
-            else
-            {
-                var result = new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
-                return result;
-            }
+            return result;
+        }
+        else
+        {
+            var result = new ValidationResult(ErrorMessage ?? DefaultErrorMessage);
+            return result;
         }
     }
 }

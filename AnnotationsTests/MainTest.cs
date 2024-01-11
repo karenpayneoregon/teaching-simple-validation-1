@@ -1,10 +1,5 @@
-using System;
-using System.Linq;
 using System.Text;
 using AnnotationsTests.Base;
-using ValidatorLibrary;
-using AnnotationsTests.Models;
-using AnnotationsTests.Models.Normal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using NuGetLibrary = ValidatorLibrary.Classes.ValidationHelper;

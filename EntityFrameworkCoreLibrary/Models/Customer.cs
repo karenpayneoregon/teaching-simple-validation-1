@@ -35,8 +35,6 @@ public class Customer : INotifyPropertyChanged
         }
     }
 
-
-
     public override string ToString() => $"{FirstName} {LastName}";
     
     public event PropertyChangedEventHandler PropertyChanged;

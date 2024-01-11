@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using BaseDataValidatorLibrary.CommonRules;
-using BaseDataValidatorLibrary.Helpers;
+﻿using BaseDataValidatorLibrary.Helpers;
 using RulesUnitTestProject.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;

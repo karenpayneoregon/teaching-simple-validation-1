@@ -1,36 +1,33 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace RulesLibrary.Classes
+namespace RulesLibrary.Classes;
+
+/// <summary>
+/// Provides custom rule for phone number rather than using stock <see cref="PhoneAttribute"/>
+/// </summary>
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class CheckPhoneValidationAttribute : ValidationAttribute 
 {
     /// <summary>
-    /// Provides custom rule for phone number rather than using stock <see cref="PhoneAttribute"/>
+    ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class CheckPhoneValidationAttribute : ValidationAttribute 
+    public override bool IsValid(object sender)
     {
-        /// <summary>
-        ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
-        /// </summary>
-        public override bool IsValid(object sender)
+
+        static bool IsDigitsOnly(string value)
         {
-
-            static bool IsDigitsOnly(string value)
-            {
-                return value.All(character => character is >= '0' and <= '9');
-            }
-
-            if (sender == null)
-            {
-                return false;
-            }
-
-            string convertedValue = sender.ToString();
-
-            return !string.IsNullOrWhiteSpace(convertedValue) && 
-                   IsDigitsOnly(convertedValue) && 
-                   convertedValue.Length <= 10;
+            return value.All(character => character is >= '0' and <= '9');
         }
+
+        if (sender == null)
+        {
+            return false;
+        }
+
+        string convertedValue = sender.ToString();
+
+        return !string.IsNullOrWhiteSpace(convertedValue) && 
+               IsDigitsOnly(convertedValue) && 
+               convertedValue.Length <= 10;
     }
 }

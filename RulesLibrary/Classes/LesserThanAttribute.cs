@@ -1,44 +1,42 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace RulesLibrary.Classes
+namespace RulesLibrary.Classes;
+
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class LesserThanAttribute : ValidationAttribute
 {
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class LesserThanAttribute : ValidationAttribute
+    /// <summary>
+    /// Assert a value is greater than <see cref="Maximum"/>
+    /// </summary>
+    /// <param name="maximum">value to validate</param>
+    public LesserThanAttribute(int maximum)
     {
-        /// <summary>
-        /// Assert a value is greater than <see cref="Maximum"/>
-        /// </summary>
-        /// <param name="maximum">value to validate</param>
-        public LesserThanAttribute(int maximum)
+        Maximum = maximum;
+    }
+    /// <summary>
+    /// Max value
+    /// </summary>
+    public int Maximum { get; set; }
+    public override string FormatErrorMessage(string name)
+    {
+        if (ErrorMessage == null && ErrorMessageResourceName == null)
         {
-            Maximum = maximum;
-        }
-        /// <summary>
-        /// Max value
-        /// </summary>
-        public int Maximum { get; set; }
-        public override string FormatErrorMessage(string name)
-        {
-            if (ErrorMessage == null && ErrorMessageResourceName == null)
-            {
-                ErrorMessage = "is unacceptable";
-            }
-
-            return $"{name} must be less than {Maximum}";
-
+            ErrorMessage = "is unacceptable";
         }
 
-        public override bool IsValid(object sender)
+        return $"{name} must be less than {Maximum}";
+
+    }
+
+    public override bool IsValid(object sender)
+    {
+        if (sender is not null)
         {
-            if (sender is not null)
-            {
-                return sender is int value && value < Maximum;
-            }
-            else
-            {
-                return false;
-            }
+            return sender is int value && value < Maximum;
+        }
+        else
+        {
+            return false;
         }
     }
 }

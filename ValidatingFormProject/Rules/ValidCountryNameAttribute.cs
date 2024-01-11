@@ -1,20 +1,18 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ValidatingFormProject.Rules
+namespace ValidatingFormProject.Rules;
+
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class ValidCountryNameAttribute : ValidationAttribute
 {
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ValidCountryNameAttribute : ValidationAttribute
+    public override bool IsValid(object value)
     {
-        public override bool IsValid(object value)
+        if (value is null)
         {
-            if (value is null)
-            {
-                return false;
-            }
-
-            return value.ToString() != "Select";
-
+            return false;
         }
+
+        return value.ToString() != "Select";
+
     }
 }

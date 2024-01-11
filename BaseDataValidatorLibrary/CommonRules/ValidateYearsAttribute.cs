@@ -10,8 +10,8 @@ namespace BaseDataValidatorLibrary.CommonRules;
 public class ValidateYearsAttribute : ValidationAttribute
 {
 
-    public readonly DateTime _minValue = DateTime.UtcNow.AddYears(-90);
-    public readonly DateTime _maxValue = DateTime.UtcNow;
+    public readonly DateTime MinValue = DateTime.UtcNow.AddYears(-90);
+    public readonly DateTime MaxValue = DateTime.UtcNow;
 
     /// <summary>
     ///  Override of <see cref="ValidationAttribute.IsValid(object)" />
@@ -19,9 +19,9 @@ public class ValidateYearsAttribute : ValidationAttribute
     public override bool IsValid(object sender)
     {
         var value = (DateTime)sender;
-        return value.Year >= _minValue.Year && value.Year <= _maxValue.Year;
+        return value.Year >= MinValue.Year && value.Year <= MaxValue.Year;
     }
 
     public override string FormatErrorMessage(string name) 
-        => string.Format(ErrorMessage!, _minValue.ToString("yyyy"), _maxValue.ToString("yyyy"));
+        => string.Format(ErrorMessage!, MinValue.ToString("yyyy"), MaxValue.ToString("yyyy"));
 }
