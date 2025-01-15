@@ -46,7 +46,7 @@ public partial class MainForm : Form
             {
                 currentChildForm.Top = Top;
                 currentChildForm.Left = 
-                    currentChildForm.Tag.ToString() == "Left" ? (Left - Width) + 120 : (Left + Width) ;
+                    currentChildForm.Tag!.ToString() == "Left" ? (Left - Width) + 120 : (Left + Width) ;
             }
         }
     }
