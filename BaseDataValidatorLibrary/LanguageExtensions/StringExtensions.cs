@@ -3,19 +3,21 @@
 
 namespace BaseDataValidatorLibrary.LanguageExtensions
 {
-    public static class StringExtensions
+    public static partial class StringExtensions
     {
         /// <summary>
-        /// Given a string with upper and lower cased letters separate them before each upper cased characters
+        /// Splits a camel-cased string into separate words by inserting spaces before each uppercase letter.
         /// </summary>
-        /// <param name="sender">String to work against</param>
-        /// <returns>String with spaces between upper-case letters</returns>
+        /// <param name="sender">The camel-cased string to process.</param>
+        /// <returns>A string with spaces inserted before each uppercase letter, preserving the original word order.</returns>
         public static string SplitCamelCase(this string sender) =>
-            string.Join(" ", Regex.Matches(sender, @"([A-Z][a-z]+)")
+            string.Join(" ", CamelCasePattern().Matches(sender)
                 .Select(m => m.Value));
 
-        private static readonly Regex Reg = new("([a-z,0-9](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", 
-            RegexOptions.Compiled);
+        [GeneratedRegex(@"([A-Z][a-z]+)")]
+        private static partial Regex CamelCasePattern();
+
+        private static readonly Regex Reg = new("([a-z,0-9](?=[A-Z])|[A-Z](?=[A-Z][a-z]))", RegexOptions.Compiled);
 
         /// <summary>
         /// This splits up a string based on capital letters
@@ -23,9 +25,7 @@ namespace BaseDataValidatorLibrary.LanguageExtensions
         /// </summary>
         /// <param name="sender"></param>
         /// <returns></returns>
-        public static string SplitPascalCase(this string sender)
-        {
-            return Reg.Replace(sender, "$1 ");
-        }
+        public static string SplitPascalCase(this string sender) 
+            => Reg.Replace(sender, "$1 ");
     }
 }
